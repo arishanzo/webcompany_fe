@@ -4,30 +4,9 @@ import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import useCountUp from "../../hooks/useCountUp";
+import allProjects from "../../lib/allProjects";
+import { useFadeUp } from "../../hooks/useFadeUp";
 
-const allProjects = [
-  { id: 1, img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600", tags: ["REACT", "UI/UX"], title: "Learning Management System", desc: "Platform pendidikan terintegrasi untuk mendukung kurikulum akademik modern." },
-  { id: 2, img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600", tags: ["NEXT.JS", "API"], title: "E-Commerce Platform", desc: "Solusi belanja online dengan performa tinggi dan pengalaman pengguna terbaik." },
-  { id: 3, img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600", tags: ["NODE.JS", "AWS"], title: "Cloud Dashboard", desc: "Dashboard monitoring infrastruktur cloud secara real-time dan interaktif." },
-  { id: 4, img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600", tags: ["REACT", "MOBILE"], title: "Mobile Banking App", desc: "Aplikasi perbankan mobile dengan keamanan tingkat enterprise." },
-  { id: 5, img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=600", tags: ["VUE", "UI/UX"], title: "HR Management System", desc: "Sistem manajemen SDM terintegrasi untuk perusahaan skala menengah." },
-  { id: 6, img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=600", tags: ["PYTHON", "AI"], title: "AI Analytics Tool", desc: "Alat analitik berbasis AI untuk pengambilan keputusan bisnis yang lebih cerdas." },
-];
-
-function useFadeUp() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.classList.add('anim-visible'); obs.disconnect(); } },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return ref;
-}
 
 const Portfolio = () => {
     const projects = useCountUp(15);
@@ -65,36 +44,7 @@ const Portfolio = () => {
 
     return (
         <>
-        <style>{`
-          @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes countPop {
-            0%   { transform: scale(0.8); opacity: 0; }
-            60%  { transform: scale(1.08); }
-            100% { transform: scale(1); opacity: 1; }
-          }
-          .anim-fade-up { opacity: 0; transform: translateY(28px); }
-          .anim-visible { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) forwards; }
-          .stat-pop { animation: countPop 0.6s cubic-bezier(.22,1,.36,1) both; }
-          .stat-pop-1 { animation-delay: 0.1s; }
-          .stat-pop-2 { animation-delay: 0.25s; }
-          .stat-pop-3 { animation-delay: 0.4s; }
-          .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-          .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-          .img-zoom { overflow: hidden; }
-          .img-zoom img { transition: transform 0.5s ease; }
-          .img-zoom:hover img { transform: scale(1.07); }
-          .testi-item { opacity: 0; transform: translateX(-16px); transition: opacity 0.5s ease, transform 0.5s ease; }
-          .testi-visible .testi-item { opacity: 1; transform: translateX(0); }
-          .testi-visible .testi-item:nth-child(1) { transition-delay: 0.05s; }
-          .testi-visible .testi-item:nth-child(2) { transition-delay: 0.15s; }
-          .testi-visible .testi-item:nth-child(3) { transition-delay: 0.25s; }
-          .testi-visible .testi-item:nth-child(4) { transition-delay: 0.35s; }
-          .btn-orange { transition: background 0.2s, transform 0.2s; }
-          .btn-orange:hover { transform: scale(1.04); }
-        `}</style>
+      
 
         {/* STATS */}
         <section className="text-center md:py-24 mt-24 mb-8">
@@ -211,7 +161,7 @@ const Portfolio = () => {
                         ))}
                       </div>
                       <p className="text-sm text-gray-500 leading-relaxed max-w-md">
-                        The quality of the design is top-notch, and I love how organized the files are. It's easy to find what I need.
+                        The quality of the design is top-notch, and I love how organized the files are. Its easy to find what I need.
                       </p>
                     </div>
                   </div>

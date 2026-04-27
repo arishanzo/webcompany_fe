@@ -47,17 +47,18 @@ const Berita = () => {
     const total = filtered.length;
 
     const startAuto = () => {
-        autoRef.current = setInterval(() => setCurrent((p) => (p + 1) % total), 3000);
+        if (total > 0) {
+            autoRef.current = setInterval(() => setCurrent((p) => (p + 1) % total), 3000);
+        }
     };
 
     useEffect(() => {
+        if (autoRef.current) clearInterval(autoRef.current);
         if (total > 0) {
-            setCurrent(0);
-            if (autoRef.current) clearInterval(autoRef.current);
             startAuto();
         }
         return () => { if (autoRef.current) clearInterval(autoRef.current); };
-    }, [filtered.length]);
+    }, [total]);
 
     const prev = () => {
         if (autoRef.current) clearInterval(autoRef.current);
@@ -76,40 +77,6 @@ const Berita = () => {
 
     return (
         <>
-        <style>{`
-          @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes heroLeft {
-            from { opacity: 0; transform: translateX(-24px); }
-            to   { opacity: 1; transform: translateX(0); }
-          }
-          @keyframes heroRight {
-            from { opacity: 0; transform: translateX(24px); }
-            to   { opacity: 1; transform: translateX(0); }
-          }
-          .anim-fade-up { opacity: 0; transform: translateY(28px); }
-          .anim-visible { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) forwards; }
-          .hero-left  { animation: heroLeft  0.7s 0.1s ease both; }
-          .hero-right { animation: heroRight 0.7s 0.3s ease both; }
-          .hero-sub   { animation: fadeUp    0.6s 0.2s ease both; }
-          .hero-desc  { animation: fadeUp    0.6s 0.35s ease both; }
-          .hero-btn   { animation: fadeUp    0.6s 0.5s ease both; }
-          .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-          .card-hover:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,0.1); }
-          .img-zoom { overflow: hidden; }
-          .img-zoom img { transition: transform 0.5s ease; }
-          .img-zoom:hover img { transform: scale(1.07); }
-          .cat-pill { transition: color 0.2s, border-bottom 0.2s; }
-          .cat-pill:hover { color: #ea580c; }
-          .btn-shine {
-            background: linear-gradient(90deg, #ea580c 40%, #fb923c 50%, #ea580c 60%);
-            background-size: 200% auto;
-            transition: background-position 0.4s ease, transform 0.2s ease;
-          }
-          .btn-shine:hover { background-position: right center; transform: scale(1.03); }
-        `}</style>
 
         <div className="text-gray-800 bg-white max-w-7xl mx-auto">
 

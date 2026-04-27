@@ -3,54 +3,8 @@
 import { CheckCircle2, ChevronLeft, ChevronRight, Globe } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
-
-const akademiCards = [
-  {
-    type: "image",
-    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800",
-    badge: "POPULER",
-    title: "Bootcamp Full-Stack",
-    desc: "Pelatihan 12 minggu intensif menguasai MERN.",
-    btn: "DAFTAR SEKARANG",
-  },
-  {
-    type: "image",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800",
-    title: "Workshop Spesialis",
-    desc: "Sesi singkat mendalam tentang React, Docker, dll.",
-    btn: "CEK JADWAL",
-  },
-  {
-    type: "image",
-    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800",
-    title: "UI/UX Intensive",
-    desc: "Kuasai Figma dan prinsip desain produk digital modern.",
-    btn: "LIHAT DETAIL",
-  },
-  {
-    type: "image",
-    img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800",
-    title: "DevOps & Cloud",
-    desc: "Pelajari CI/CD, Docker, Kubernetes, dan AWS dari nol.",
-    btn: "DAFTAR SEKARANG",
-  },
-];
-
-// Hook: fade-up on scroll
-function useFadeUp() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.classList.add('anim-visible'); obs.disconnect(); } },
-      { threshold: 0.15 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return ref;
-}
+import { useFadeUp } from "../../hooks/useFadeUp";
+import akademiCards from "../../lib/layananCards";
 
 const Services = () => {
     const [current, setCurrent] = useState(0);
@@ -86,41 +40,7 @@ const Services = () => {
 
     return (
         <>
-        <style>{`
-          @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(32px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes heroFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes shimmer {
-            0%   { background-position: -200% center; }
-            100% { background-position: 200% center; }
-          }
-          .anim-fade-up { opacity: 0; transform: translateY(32px); }
-          .anim-visible { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) forwards; }
-          .hero-line-1 { animation: heroFadeIn 0.7s 0.1s ease both; }
-          .hero-line-2 { animation: heroFadeIn 0.7s 0.3s ease both; }
-          .hero-line-3 { animation: heroFadeIn 0.7s 0.5s ease both; }
-          .hero-line-4 { animation: heroFadeIn 0.7s 0.7s ease both; }
-          .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-          .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
-          .btn-shine {
-            background: linear-gradient(90deg, #ea580c 40%, #fb923c 50%, #ea580c 60%);
-            background-size: 200% auto;
-            transition: background-position 0.4s ease, transform 0.2s ease;
-          }
-          .btn-shine:hover { background-position: right center; transform: scale(1.03); }
-          .btn-outline-hover { transition: background 0.25s, color 0.25s, transform 0.2s; }
-          .btn-outline-hover:hover { background: white; color: #1e3a5f; transform: scale(1.03); }
-          .icon-spin:hover { animation: spin 0.6s ease; }
-          @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-          .stagger-1 { animation-delay: 0.05s; }
-          .stagger-2 { animation-delay: 0.15s; }
-          .stagger-3 { animation-delay: 0.25s; }
-        `}</style>
+        
 
         <div className="font-sans text-gray-800">
           {/* HERO */}
