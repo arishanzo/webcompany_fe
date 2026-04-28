@@ -1,5 +1,7 @@
 'use client';
 
+import { useLanguage } from "../../context/LanguageContext";
+
 const techStack = [
   { name: 'Next.js', logo: 'https://cdn.worldvectorlogo.com/logos/nextjs-2.svg' },
   { name: 'React', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' },
@@ -18,13 +20,15 @@ const techStack = [
 const Sponsor = () => {
   const doubled = [...techStack, ...techStack];
 
+  const { t } = useLanguage();
+
   return (
     <>
 
       <section className="w-full bg-white border-y border-gray-100 py-8">
         <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
-            Teknologi yang Kami Gunakan
+            {t('hero_section_tech')}
           </p>
         </div>
 

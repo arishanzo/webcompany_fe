@@ -63,7 +63,7 @@ const Portfolio = () => {
           <div ref={showcaseRef} className="anim-fade-up">
             <div className="flex justify-between max-w-7xl mx-auto px-6 items-start mb-10">
               <div>
-                <h3 className="text-base font-semibold mb-2">Showcase Proyek</h3>
+                <h3 className="text-base font-semibold mb-2">Lihat Proyek</h3>
                 <p className="text-gray-500 max-w-xl">
                   Eksplorasi karya-karya unggulan kami yang menggabungkan estetika modern dengan fungsionalitas teknis tingkat tinggi.
                 </p>
@@ -128,8 +128,8 @@ const Portfolio = () => {
         <section className="py-20 px-16 max-w-7xl mx-auto">
           <div ref={testiRef} className="anim-fade-up">
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-4xl font-bold">Our Testimoni</h2>
-              <a className="text-blue-600 text-sm cursor-pointer hover:underline">View All →</a>
+              <h2 className="text-2xl font-bold">Apa Kata Mereka?</h2>
+              <a className="text-blue-600 text-sm cursor-pointer hover:underline">Lihat Semua →</a>
             </div>
 
             <div className="grid md:grid-cols-2 gap-2">

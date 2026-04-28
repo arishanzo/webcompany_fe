@@ -3,14 +3,18 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Footer = () => {
       const pathname = usePathname();
         const [activeNav, setActiveNav] = useState(pathname === '/' ? true : false);
-
-          const handleNavClick = () => {
+         const { t } = useLanguage();
+    
+    
+     const handleNavClick = () => {
         setActiveNav(true);
     }
+
     return (
        <footer className="bottom-0 w-full bg-biru-dark text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -23,32 +27,32 @@ const Footer = () => {
                        <Link href="/" 
                        onClick={ () =>handleNavClick()}
                        className={` ${pathname === '/' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
-                          Home
+                         {t('nav_home')}
                         </Link>
                         <Link 
                         onClick={ () => handleNavClick()}
                         href="/about"  className={` ${pathname === '/about' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
-                          About
+                           {t('nav_about')}
                         </Link>
                         <Link 
                         onClick={ () => handleNavClick()}
                         href="/layanan"  className={` ${ pathname === '/layanan' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
-                            Services
+                         {t('nav_services')}
                         </Link>
                         <Link 
                         onClick={ () => handleNavClick()}
                         href="/portfolio"  className={` ${ pathname === '/portfolio' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
-                            Portfolio
+                             {t('nav_portfolio')}
                         </Link>
                           <Link 
                         onClick={ () => handleNavClick()}
                           href="/berita"  className={` ${pathname === '/berita' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
-                            Berita / Artikel
+                           {t('nav_news')}
                         </Link>
                         <Link 
                           onClick={ () => handleNavClick()}
                         href="/contact"  className={` ${pathname === '/contact' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
-                            Contact Us
+                             {t('nav_contact')}
                         </Link>
                         </div>
                         </div>
@@ -56,7 +60,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-sm">
-                        © 2026 PT. Entio Academic & Technologhy. <span className='text-gray-400'>All rights reserved.</span>
+                        © 2026 Entio Academic & Technologhy. <span className='text-gray-400'>All rights reserved.</span>
                     </p>
                     <div className="flex gap-6 text-sm">
                          <Link href="#" className="w-10 h-10  hover:bg-white/20  flex items-center justify-center transition-all hover:scale-110">

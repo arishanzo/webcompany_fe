@@ -1,14 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
     const [activeNav, setActiveNav] = useState(pathname === '/' ? true : false);
+    const { lang, setLang, t } = useLanguage();
 
    
     const handleNavClick = () => {
@@ -25,7 +27,7 @@ const Header = () => {
                     <Link href="/" className="flex items-center space-x-2 group">
                          <div className="flex items-center">
                             <span className="text-xl font-extrabold bg-orange-500 bg-clip-text text-transparent">
-                                PT. Eintio
+                                Eintio
                             </span>
                             </div>
                     </Link>
@@ -35,50 +37,64 @@ const Header = () => {
                         <Link href="/" 
                         onClick={ () => handleNavClick()}
                         className= {`${activeNav  && pathname === '/' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
-                          Home
+                          {t('nav_home')}
                         </Link>
                         <Link href="/about" 
                           onClick={ () => handleNavClick()}
                        className= {`${pathname === '/about' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
-                            About
+                            {t('nav_about')}
                         </Link>
                         <Link 
                         href="/layanan"
                           onClick={ () => handleNavClick()} 
                         className= {`${pathname === '/layanan' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
-                         Services
+                         {t('nav_services')}
                         </Link>
                         <Link 
                         href="/portfolio" 
                           onClick={ () => handleNavClick()}
                        className= {`${pathname === '/portfolio' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
-                   
-                            Portfolio
+                            {t('nav_portfolio')}
                         </Link>
                           <Link 
                           href="/berita"
                             onClick={ () => handleNavClick()} 
                          className= {`${pathname === '/berita' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
-                   
-                            Berita / Artikel
+                            {t('nav_news')}
                         </Link>
                         <Link 
                         href="/contact" 
                           onClick={ () => handleNavClick()}
                          className= {`${pathname === '/contact' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
-                   
-                            Contact Us
+                            {t('nav_contact')}
                         </Link>
                     </div>
 
+
                     {/* CTA Buttons */}
                     <div className="hidden md:flex items-center space-x-4">
+                                  <div className="flex gap-1 bg-gray-100 p-1 rounded-full">
+                            <button
+                              onClick={() => setLang('id')}
+                              className={`px-3 cursor-pointer py-1 rounded-full text-sm font-semibold transition ${
+                                lang === 'id' ? 'bg-orange-500 text-white shadow' : 'text-gray-500 hover:bg-white hover:text-orange-500'
+                              }`}>
+                              ID
+                            </button>
+                            <button
+                              onClick={() => setLang('en')}
+                              className={`px-3 cursor-pointer py-1 rounded-full text-sm font-semibold transition ${
+                                lang === 'en' ? 'bg-orange-500 text-white shadow' : 'text-gray-500 hover:bg-white hover:text-orange-500'
+                              }`}>
+                              EN
+                            </button>
+                        </div>
+
                         <a  href='https://wa.me/628816982294?text=Halo%20saya%20ingin%20konsultasi' 
                         target="_blank" 
                             rel="noopener noreferrer"
-
                          className="px-6 py-2.5 bg-orange-700 text-white rounded-full hover:shadow-lg hover:scale-105 transition-all font-medium">
-                            Login
+                            {t('nav_login')}
                         </a>
                     </div>
 
@@ -139,45 +155,43 @@ const Header = () => {
                                 onClick={() => setIsMenuOpen(false)}
                                 className= {`${pathname === '/' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
                             >
-                                Home
+                                {t('nav_home')}
                             </Link>
                             <Link 
                                 href="/about" 
                                onClick={() => setIsMenuOpen(false)}
                                 className= {`${pathname === '/about' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
                            >
-                                About
+                                {t('nav_about')}
                             </Link>
                             <Link 
                                 href="/layanan" 
                                 onClick={() => setIsMenuOpen(false)}
                                 className= {`${ pathname === '/layanan' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
                              >
-                                Services
+                                {t('nav_services')}
                             </Link>
                             <Link 
                                 href="/portfolio" 
                                onClick={() => setIsMenuOpen(false)}
                                 className= {`${pathname === '/portfolio' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
                               >
-                                Portfolio
+                                {t('nav_portfolio')}
                             </Link>
                             <Link 
                                 href="/berita" 
                                 onClick={() => setIsMenuOpen(false)}
                                 className= {`${ pathname === '/berita' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
-                       
                               >
-                               Berita / Artikel
+                               {t('nav_news')}
                             </Link>
 
                             <Link 
                                 href="/contact" 
                                  onClick={() => setIsMenuOpen(false)}
                                 className= {`${pathname === '/contact' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
-                       
                                 >
-                                Contact
+                                {t('nav_contact')}
                             </Link>
                             
                             

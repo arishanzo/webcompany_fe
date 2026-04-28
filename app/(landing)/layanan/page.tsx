@@ -5,9 +5,12 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { useFadeUp } from "../../hooks/useFadeUp";
 import akademiCards from "../../lib/layananCards";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Services = () => {
     const [current, setCurrent] = useState(0);
+    const { t } = useLanguage();
+
     const total = akademiCards.length;
     const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -49,21 +52,20 @@ const Services = () => {
             <div className="absolute inset-0 bg-black/60"></div>
             <div className="relative max-w-7xl mx-auto px-6 py-28">
               <p className="hero-line-1 text-sm tracking-widest text-gray-300 mb-4">
-                EKSPERTIS DIGITAL & EDUKASI
+                {t('services_title')}
               </p>
               <h1 className="hero-line-2 text-4xl md:text-5xl font-bold leading-tight mb-6">
-                Solusi Teknologi & Transformasi Akademik
+                {t('services_subtitle')}
               </h1>
               <p className="hero-line-3 text-gray-300 max-w-xl mb-8">
-                Kami menggabungkan presisi akademis dengan inovasi teknologi untuk
-                membangun masa depan digital yang tangguh dan cerdas.
+               {t('services_subtitle_hero')}
               </p>
               <div className="hero-line-4 flex gap-4">
                 <button className="btn-shine bg-orange-600 px-6 py-3 rounded font-semibold">
-                  MULAI KONSULTASI
+                {t('services_button')}
                 </button>
                 <button className="btn-outline-hover border border-gray-400 px-6 py-3 rounded">
-                  PELAJARI AKADEMI
+                {t('services_button2')}
                 </button>
               </div>
             </div>
@@ -72,18 +74,18 @@ const Services = () => {
           {/* LAYANAN */}
           <section className="py-16 bg-white">
             <div ref={layananRef} className="anim-fade-up max-w-7xl mx-auto px-6">
-              <p className="text-sm text-gray-500 mb-2">• Layanan Teknologi</p>
-              <h2 className="text-3xl font-bold mb-10">Pengembangan Digital</h2>
+              <p className="text-sm text-gray-500 mb-2">•{t('services_title2')}</p>
+              <h2 className="text-3xl font-bold mb-10">{t('services_subtitle2')}</h2>
 
               <div className="grid md:grid-cols-2 gap-6 items-stretch">
                 <div className="card-hover border border-gray-200 p-6 rounded-lg py-16">
                   <Globe className="icon-spin text-gray-800 w-10 h-10 mb-8" />
-                  <h3 className="text-xl font-semibold mb-4">Website Kustom & Web Apps</h3>
+                  <h3 className="text-xl font-semibold mb-4">{t('services_title3')}</h3>
                   <p className="text-gray-600 mb-6">
-                    Membangun platform web performa tinggi dengan arsitektur modern yang skalabel dan aman.
+                    {t('services_subtitle3')}
                   </p>
                   <button className="text-sm font-semibold pt-8 hover:text-orange-600 transition-colors">
-                    LIHAT DETAIL PROYEK →
+                  {t('services_button3')}
                   </button>
                 </div>
 
@@ -91,9 +93,9 @@ const Services = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-15 h-15 mb-8 text-green-500" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.6 9.48l1.43-2.48a.5.5 0 00-.87-.5l-1.46 2.53a8.1 8.1 0 00-8.4 0L7.84 6.5a.5.5 0 00-.87.5l1.43 2.48A7.96 7.96 0 004 17h16a7.96 7.96 0 00-2.4-7.52zM9 20a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0z"/>
                   </svg>
-                  <h3 className="text-xl font-semibold mb-4">Aplikasi Mobile</h3>
+                  <h3 className="text-xl font-semibold mb-4">{t('services_title3')}</h3>
                   <p className="text-gray-300">
-                    Pengembangan aplikasi iOS dan Android native atau cross-platform dengan performa lancar.
+                   {t('services_subtitle3')}
                   </p>
                 </div>
               </div>
@@ -105,8 +107,8 @@ const Services = () => {
             <div ref={akademiRef} className="anim-fade-up max-w-7xl mx-auto px-6">
               <div className="flex justify-between items-center mb-10">
                 <div>
-                  <h2 className="text-3xl font-bold">Akademi & Edukasi IT</h2>
-                  <p className="text-gray-600">Program pelatihan intensif untuk mencetak talenta digital.</p>
+                  <h2 className="text-3xl font-bold">{t('services_card_title')}</h2>
+                  <p className="text-gray-600">{t('services_card_subtitle')}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button onClick={prev} className="bg-gray-300 hover:bg-gray-400 p-2 rounded cursor-pointer transition-colors">
@@ -164,9 +166,9 @@ const Services = () => {
 
                 {/* sertifikasi */}
                 <div className="card-hover bg-biru-dark text-white p-6 rounded-lg flex flex-col">
-                  <h3 className="text-lg font-semibold mb-4">Sertifikasi Internasional</h3>
+                  <h3 className="text-lg font-semibold mb-4">{t('services_title_sertfikasi')}</h3>
                   <p className="text-sm text-gray-300 mb-12">
-                    Persiapan ujian sertifikasi global untuk memvalidasi keahlian teknis Anda di mata dunia.
+                  {t('services_subtitle_sertfikasi')}
                   </p>
                   <ul className="text-gray-300 space-y-2 mb-6">
                     {["AWS Solutions Architect", "CompTIA Security+", "Google Cloud Engineer"].map((item, i) => (
@@ -175,7 +177,7 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <button className="bg-white text-blue-900 w-full py-2 rounded mt-auto hover:bg-gray-100 transition-colors">INFO SERTIFIKASI</button>
+                  <button className="bg-white text-blue-900 w-full py-2 rounded mt-auto hover:bg-gray-100 transition-colors"> {t('services_button_sertfikasi')}</button>
                 </div>
               </div>
             </div>
@@ -185,17 +187,17 @@ const Services = () => {
           <section className="bg-orange-600 text-white py-16 text-center overflow-hidden relative">
             <div ref={ctaRef} className="anim-fade-up relative z-10">
               <h2 className="md:text-3xl text-xl font-bold mb-4">
-                Siap Mengakselerasi Potensi Digital Anda?
+                 {t('services_cta_title')}
               </h2>
               <p className="mb-8 text-orange-100">
-                Hubungi tim ahli kami hari ini untuk konsultasi gratis.
+                 {t('services_cta_desc')}
               </p>
               <div className="flex justify-center gap-4">
                 <button className="bg-biru-dark px-6 py-3 rounded hover:opacity-90 transition-opacity hover:scale-105 transform duration-200">
-                  HUBUNGI KAMI
+                  {t('services_cta_button')}
                 </button>
                 <button className="btn-outline-hover border border-white px-6 py-3 rounded">
-                  UNDUH PROSPEKTUS
+                  {t('services_cta_button2')}
                 </button>
               </div>
             </div>

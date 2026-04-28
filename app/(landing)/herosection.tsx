@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Sponsor from './components/sponsor';
+import { useLanguage } from '../context/LanguageContext';
 
 
 const slides = [
@@ -16,6 +17,8 @@ const HeroSection = () => {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [visible, setVisible] = useState(false);
+
+  const { t} = useLanguage();
 
   
   useEffect(() => {
@@ -45,27 +48,24 @@ const HeroSection = () => {
 
           {/* LEFT CONTENT */}
           <div className={`p-4 transition-opacity duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-xs font-semibold text-gray-500 mb-4">Shaping the Digital Future</p>
+            <p className="text-xs font-semibold text-gray-500 mb-4">{t("hero_title")}</p>
            
 
-            <h1 className="slide-up-2 text-4xl md:text-6xl font-bold leading-tight text-gray-900 mb-6">
-              Solusi Teknologi, <br />
-              Kreativitas, & Akademik
+            <h1 className="slide-up-2 text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-6">
+              {t("hero_subtitle")} <br />
+             {t("hero_subtitle2")}
             </h1>
 
             <p className="slide-up-3 text-gray-600 mb-6">
-              Mendorong transformasi digital yang relevan, fungsional, dan
-              berkelanjutan untuk bisnis dan dunia pendidikan. PT Intiio
-              Academic & Technology hadir untuk menjawab tantangan modern
-              dengan pendekatan inovatif dan terintegrasi.
+              {t("hero_deskripsi")}
             </p>
 
             <div className="slide-up-4 flex gap-4 ">
               <a href='/about' className="bg-orange-600 cursor-pointer text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-orange-700 hover:scale-105 transition-all duration-200">
-                Tentang Kami
+                 {t("hero_cta")}
               </a>
               <a href="/portfolio" className="border border-gray-400 cursor-pointer font-bold px-6 py-3 rounded-lg hover:bg-gray-100 hover:scale-105 transition-all duration-200">
-                VIEW OUR WORK
+                 {t("hero_cta_secondary")}
               </a>
             </div>
           </div>
@@ -89,18 +89,18 @@ const HeroSection = () => {
 
             {/* Floating Cards */}
             <div className="float-card-1 absolute top-0  bg-white shadow-lg rounded-lg px-4 py-3 text-sm border border-orange-100">
-              <p className="font-semibold">15+ Instruktur</p>
-              <p className="text-gray-500">Berpengalaman di IT</p>
+              <p className="font-semibold">{t('hero_title_floating')}</p>
+              <p className="text-gray-500">{t('hero_subtitle_floating4')}</p>
             </div>
 
             <div className="float-card-2 absolute bottom-5 left-0 bg-white shadow-lg rounded-lg px-4 py-3 text-sm border border-orange-100">
-              <p className="font-semibold">100+ Projects</p>
-              <p className="text-gray-500">Telah diselesaikan</p>
+              <p className="font-semibold">{t('hero_title_floating2')}</p>
+              <p className="text-gray-500">{t('hero_subtitle_floating5')}</p>
             </div>
 
             <div className="float-card-3 absolute bottom-0 right-5 bg-white shadow-lg rounded-lg px-4 py-3 text-sm border border-orange-100">
-              <p className="font-semibold">100+ Client</p>
-              <p className="text-gray-500">Merasa Puas</p>
+              <p className="font-semibold">{t('hero_title_floating3')}</p>
+              <p className="text-gray-500">{t('hero_subtitle_floating6')}</p>
             </div>
           </div>
         </div>
