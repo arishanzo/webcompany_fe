@@ -30,7 +30,7 @@ export const translations: Record<string, Record<string, string>> = {
 
     // About
     about_title: 'Tentang Kami',
-    about_title2: 'Sinergi Presisi Akademik &\nInovasi Teknologi',
+    about_title2: 'Sinergi Presisi Akademik & Inovasi Teknologi',
     about_desc: 'Intio Academic & Technology adalah perusahaan yang bergerak di bidang teknologi, desain kreatif, dan layanan akademik. Kami menghadirkan solusi terintegrasi yang dirancang untuk menjawab kebutuhan bisnis, institusi pendidikan, dan individu di tengah percepatan transformasi digital',
     about_botton_contact: "Kontak Kami",
     about_pengalaman: 'Pengalaman',

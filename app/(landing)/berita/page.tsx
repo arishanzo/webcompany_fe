@@ -3,32 +3,11 @@
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useFadeUp } from "../../hooks/useFadeUp";
+import allArtikel from "../../lib/allArtikel";
 
-const allArtikel = [
-  { id: 1, img: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=600", date: "08 Mei 2024", category: "Teknologi", title: "Evolusi UI/UX dalam Aplikasi Enterprise 2024", desc: "Menjelajahi pergeseran paradigma desain dari fungsionalitas menuju pengalaman pengguna." },
-  { id: 2, img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600", date: "15 Mei 2024", category: "Akademik", title: "Transformasi Kurikulum di Era Digital", desc: "Bagaimana institusi pendidikan mengadopsi teknologi untuk meningkatkan kualitas belajar." },
-  { id: 3, img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600", date: "22 Mei 2024", category: "Desain Kreatif", title: "Tren Desain Grafis yang Mendominasi 2024", desc: "Eksplorasi gaya visual terbaru yang mempengaruhi industri kreatif global." },
-  { id: 4, img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600", date: "01 Jun 2024", category: "Teknologi", title: "Cloud Computing untuk Bisnis Skala Menengah", desc: "Strategi adopsi cloud yang efisien dan aman untuk perusahaan berkembang." },
-  { id: 5, img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600", date: "10 Jun 2024", category: "Event", title: "Recap: Tech Summit Indonesia 2024", desc: "Sorotan dari konferensi teknologi terbesar tahun ini di Jakarta." },
-  { id: 6, img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=600", date: "18 Jun 2024", category: "Teknologi", title: "AI Generatif dan Masa Depan Pekerjaan", desc: "Analisis dampak kecerdasan buatan terhadap lanskap karier profesional." },
-];
 
 const CATEGORIES = ["Semua", "Teknologi", "Akademik", "Desain Kreatif", "Event"];
-
-function useFadeUp() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.classList.add('anim-visible'); obs.disconnect(); } },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return ref;
-}
 
 const Berita = () => {
     const [activeCategory, setActiveCategory] = useState("Semua");
@@ -72,16 +51,26 @@ const Berita = () => {
         startAuto();
     };
 
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+
+    const cols = isMobile ? 1 : 3;
+
     const carouselRef = useFadeUp();
     const newsletterRef = useFadeUp();
 
     return (
         <>
 
-        <div className="text-gray-800 bg-white max-w-7xl mx-auto">
+        <div className="text-gray-800 bg-gray-100">
 
           {/* HERO */}
-          <section className="px-6 py-24 grid md:grid-cols-2 gap-10 items-center">
+          <section className="px-6 py-24 md:py-32  max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
             <div>
               <p className="hero-sub text-xs tracking-widest text-gray-400 mb-4">
                 BERITA & WAWASAN TERBARU
@@ -89,7 +78,7 @@ const Berita = () => {
               <h1 className="hero-left text-4xl font-bold leading-tight mb-4">
                 Transformasi Digital di Sektor Pendidikan Indonesia
               </h1>
-              <p className="hero-desc text-gray-500 mb-6 max-w-md">
+              <p className="hero-desc text-gray-500 mb-6 max-w-md text-justify">
                 Mengkaji bagaimana teknologi informasi mendefinisikan ulang standar akademis dan metodologi pengajaran di era industri 4.0.
               </p>
               <div className="hero-btn">
@@ -112,26 +101,26 @@ const Berita = () => {
           </section>
 
           {/* FILTER */}
-          <section className="px-6 py-6 flex justify-between items-center">
-            <div className="flex gap-6 text-sm">
+          <section className="px-6 py-6 max-w-7xl mx-auto flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
+            <div className="flex gap-4 text-sm overflow-x-auto pb-1 scrollbar-hide">
               {CATEGORIES.map((cat) => (
                 <span
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`cat-pill cursor-pointer pb-1 ${activeCategory === cat ? "text-orange-600 font-semibold border-b-2 border-orange-600" : "text-gray-500"}`}
+                  className={`cat-pill cursor-pointer pb-1 whitespace-nowrap flex-shrink-0 ${activeCategory === cat ? "text-orange-600 font-semibold border-b-2 border-orange-600" : "text-gray-500"}`}
                 >
                   {cat}
                 </span>
               ))}
             </div>
 
-            <div className="flex items-center border border-gray-200 px-3 py-2 rounded-md text-sm text-gray-500 focus-within:border-orange-400 transition-colors">
+            <div className="flex items-center border border-gray-200 px-3 py-2 rounded-md text-sm text-gray-500 focus-within:border-orange-400 transition-colors w-full md:w-auto">
               <Search size={16} className="mr-2 shrink-0" />
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Cari artikel..."
-                className="outline-none bg-transparent w-40"
+                className="outline-none bg-transparent w-full md:w-40"
               />
             </div>
           </section>
@@ -139,7 +128,7 @@ const Berita = () => {
           <hr className="text-gray-200" />
 
           {/* CAROUSEL ARTIKEL */}
-          <section className="px-6 py-12">
+          <section className="px-6 py-12  max-w-7xl mx-auto">
             {total === 0 ? (
               <p className="text-center text-gray-400 py-16">Tidak ada artikel ditemukan.</p>
             ) : (
@@ -156,10 +145,10 @@ const Berita = () => {
                 <div className="overflow-hidden">
                   <div
                     className="flex gap-8 transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(calc(-${current * (100 / 3)}% - ${current * (32 / 3)}px))` }}
+                    style={{ transform: `translateX(calc(-${current * (100 / cols)}% - ${current * (32 / cols)}px))` }}
                   >
                     {looped.map((item, idx) => (
-                      <div key={idx} className="card-hover border border-gray-200 rounded-lg overflow-hidden flex-shrink-0 w-[calc(33.333%-22px)]">
+                      <div key={idx} className={`card-hover border border-gray-200 rounded-lg overflow-hidden flex-shrink-0 ${isMobile ? 'w-full' : 'w-[calc(33.333%-22px)]'}`}>
                         <div className="img-zoom">
                           <Image
                             src={item.img}
@@ -197,25 +186,35 @@ const Berita = () => {
             )}
           </section>
 
-          {/* NEWSLETTER */}
-          <section ref={newsletterRef} className="anim-fade-up mx-6 mb-20 bg-orange-600 text-white p-12 rounded-lg flex justify-between items-center">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">Tetap Terinformasi</h2>
-              <p className="text-orange-100 mb-4 max-w-md">
-                Dapatkan wawasan eksklusif, pengumuman workshop, dan berita teknologi terbaru langsung ke inbox Anda.
-              </p>
-              <div className="flex gap-4">
-                <input
-                  placeholder="Alamat email Anda"
-                  className="px-4 py-3 rounded w-64 bg-orange-500 text-white placeholder-orange-200 outline-none focus:ring-2 focus:ring-white transition-all"
-                />
-                <button className="bg-white text-orange-600 font-semibold cursor-pointer px-6 py-3 rounded hover:bg-orange-50 transition-colors">
-                  BERLANGGANAN
-                </button>
-              </div>
-            </div>
-            <div className="text-6xl opacity-20">✉️</div>
-          </section>
+         {/* NEWSLETTER */}
+         <div className="p-2">
+<section
+  ref={newsletterRef}
+  className="anim-fade-up max-w-7xl mx-auto mb-20 bg-orange-600 text-white rounded-lg p-6 sm:p-10 md:p-12 flex flex-col md:flex-row items-center md:items-start justify-between gap-8"
+>
+  {/* Konten kiri */}
+  <div className="flex-1 text-center md:text-left">
+    <h2 className="text-2xl font-bold mb-2">Tetap Terinformasi</h2>
+    <p className="text-orange-100 mb-4 max-w-md mx-auto md:mx-0">
+      Dapatkan wawasan eksklusif, pengumuman workshop, dan berita teknologi terbaru langsung ke inbox Anda.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+      <input
+        placeholder="Alamat email Anda"
+        className="px-4 py-3 rounded w-full sm:w-64 bg-orange-500 text-white placeholder-orange-200 outline-none focus:ring-2 focus:ring-white transition-all"
+      />
+      <button className="bg-white text-orange-600 font-semibold cursor-pointer px-6 py-3 rounded hover:bg-orange-50 transition-colors">
+        BERLANGGANAN
+      </button>
+    </div>
+  </div>
+
+  {/* Icon kanan */}
+  <div className="text-6xl opacity-20 mt-6 md:mt-0">
+    ✉️
+  </div>
+</section>
+</div>
 
         </div>
         </>

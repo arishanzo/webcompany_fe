@@ -22,21 +22,22 @@ const Contact = () => {
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop')" }}
       >
         <div className="absolute inset-0 bg-white/80" />
-        <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6">
+        <div className="relative z-10 flex h-full flex-col justify-center px-6 max-w-7xl mt-22 mx-auto w-full">
           <p className="hero-label text-sm tracking-[0.35em] font-medium uppercase text-gray-800 mb-5">
-               {t('contact_title')}
+            {t('contact_title')}
           </p>
-          <h1 className="hero-title max-w-4xl text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black ">
-              {t('contact_title2')}
+          <h1 className="hero-title max-w-2xl text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black">
+            {t('contact_title2')}
           </h1>
-          <p className="hero-desc mt-8 max-w-3xl text-xl text-gray-600 leading-relaxed text-justify ">
-              {t('contact_subtitle')}
+          <p className="hero-desc mt-8 max-w-xl text-xl text-gray-600 leading-relaxed text-justify">
+            {t('contact_subtitle')}
           </p>
         </div>
       </section>
 
+
       {/* Contact Section */}
-      <section className="max-w-6xl mx-auto px-8 py-24 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10">
+      <section className="max-w-7xl mx-auto px-8 py-24 grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10">
 
         {/* Form */}
         <div className="form-card input-focus-ring bg-white border border-gray-300 rounded-xl p-10 min-h-[760px]">
@@ -93,6 +94,47 @@ const Contact = () => {
         </div>
 
       </section>
+
+  {/* CTA */}
+<section className="w-full bg-[#f7f7f7] py-10 px-6">
+  <div className="anim-fade-up relative max-w-7xl mx-auto bg-blue-950 text-white py-12 px-6 rounded-xl shadow-xl flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
+    
+    {/* Konten kiri */}
+    <div className="flex-1 text-center md:text-left">
+      <p className="text-sm tracking-widest uppercase text-blue-300 mb-3 font-medium">
+        Solusi Terbaik untuk Bisnis Anda
+      </p>
+      <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-3">
+        Tingkatkan Pertumbuhan dengan Layanan Premium Kami
+      </h2>
+      <p className="text-gray-300 text-sm max-w-lg mx-auto md:mx-0 mb-6">
+        Jangan biarkan peluang lewat begitu saja. Dengan dukungan tim ahli dan strategi yang terbukti, 
+        bisnis Anda bisa berkembang lebih cepat, lebih aman, dan lebih menguntungkan. 
+        Mulai sekarang dan rasakan perbedaannya!
+      </p>
+
+      {/* Button di bawah teks */}
+      <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+        <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 text-sm font-semibold rounded transition-colors">
+          Mulai Sekarang
+        </button>
+        <button className="border border-white text-white px-6 py-3 text-sm font-semibold rounded hover:bg-white hover:text-blue-950 transition-colors">
+          Konsultasi Gratis
+        </button>
+      </div>
+    </div>
+
+    {/* Ornamen kotak-kotak transparan di kanan */}
+    <div className="flex-shrink-0 relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 mt-8 md:mt-0">
+      <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 gap-2 opacity-20">
+        {Array.from({ length: 36 }).map((_, i) => (
+          <div key={i} className="bg-white/10 rounded-sm"></div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
     </>
   );

@@ -56,7 +56,7 @@ const HeroSection = () => {
              {t("hero_subtitle2")}
             </h1>
 
-            <p className="slide-up-3 text-gray-600 mb-6">
+            <p className="slide-up-3 text-gray-600 mb-6 text-justify">
               {t("hero_deskripsi")}
             </p>
 

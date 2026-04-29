@@ -45,11 +45,11 @@ const Portfolio = () => {
     return (
         <>
       
-
+<div className="w-full bg-gray-100">
         {/* STATS */}
-        <section className="text-center md:py-24 mt-24 mb-8">
+        <section className="text-center  md:py-24 mt-24 mb-8">
           <div ref={statsRef} className="anim-fade-up grid grid-cols-3 max-w-5xl p-8 mx-auto">
-            {["PROJECTS COMPLETED", "CLIENT GLOBAL", "INSTRUKTUR BERPENGALAMAN"].map((t, i) => (
+            {["Proyek Komplit", "Klien Global", "Instruktur Berpengalaman"].map((t, i) => (
               <div key={i} className={`stat-pop stat-pop-${i + 1}`}>
                 <h2 className="md:text-5xl text-3xl font-bold text-orange-600">{i === 2 ? `${projects}+` : `${client}+`}</h2>
                 <p className="text-xs tracking-[0.3em] mt-3 text-gray-500">{t}</p>
@@ -59,7 +59,7 @@ const Portfolio = () => {
         </section>
 
         {/* SHOWCASE */}
-        <section className="bg-gray-100 py-16">
+        <section className="bg-gray-200 py-16">
           <div ref={showcaseRef} className="anim-fade-up">
             <div className="flex justify-between max-w-7xl mx-auto px-6 items-start mb-10">
               <div>
@@ -170,6 +170,7 @@ const Portfolio = () => {
             </div>
           </div>
         </section>
+        </div>
         </>
     )
 }

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import useCountUp from "../../hooks/useCountUp";
 import { useLanguage } from "../../context/LanguageContext";
+import Image from "next/image";
 
 const useReveal = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -38,27 +39,6 @@ const AboutUs = () => {
     return () => clearTimeout(t);
   }, []);
 
-  useEffect(() => {
-    if (!heroVisible) return;
-    const timeout = setTimeout(() => {
-      setDisplayedText(""); 
-      setIndex(0);
-    }, 0);
-    return () => clearTimeout(timeout);
-  }, [lang, heroVisible]);
-
-  useEffect(() => {
-    if (!heroVisible) return;
-    if (index < fullText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText((prev) => prev + fullText[index]);
-        setIndex((prev) => prev + 1);
-      }, 50);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [index, heroVisible, fullText]);
-
   const client = useCountUp(5);
   const Projects = useCountUp(100);
   const support = useCountUp(27);
@@ -67,46 +47,61 @@ const AboutUs = () => {
     <>
    
 
-      <div className="w-full bg-gray-50 py-12 text-gray-800">
+      <div className="w-full bg-gray-100 text-gray-800">
 
         {/* Hero Section */}
-        <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-          <div className={`opacity-0 ${heroVisible ? 'anim-scale-in delay-1' : ''}`}>
-             <p className="font-semibold text-sm text-gray-500 mb-4">{t("about_title")}</p>
-            
-          </div>
-
-<div className="min-h-[120px] flex items-center justify-center">
-          <h1 className={`text-4xl md:text-5xl font-bold leading-tight whitespace-pre-line opacity-0 ${heroVisible ? 'anim-fade-up delay-2' : ''}`}>
-            {displayedText.split(lang === 'en' ? 'Academic' : 'Akademik').map((part, i) =>
-              i === 0 ? part : (
-                <React.Fragment key={i}>
-                  <span className="text-orange-500">{lang === 'en' ? 'Academic' : 'Akademik'}</span>
-                  {part.split(lang === 'en' ? 'Technological' : 'Teknologi').map((sub, j) =>
-                    j === 0 ? sub : (
-                      <React.Fragment key={j}>
-                        <span className="text-orange-500">{lang === 'en' ? 'Technological' : 'Teknologi'}</span>
-                        {sub}
+        <section className="max-w-7xl mx-auto px-6 py-30 md:py-32">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            {/* Text Left */}
+            <div className="flex-1">
+              <div className={`opacity-0 ${heroVisible ? 'anim-scale-in delay-1' : ''}`}>
+                <p className="font-semibold text-sm text-gray-500 mb-2">{t("about_title")}</p>
+              </div>
+              <div className="min-h-[120px] flex items-center">
+                <h1 className={`text-4xl md:text-5xl font-bold leading-tight whitespace-pre-line opacity-0 ${heroVisible ? 'anim-fade-up delay-2' : ''}`}>
+                  {fullText.split(lang === 'en' ? 'Academic' : 'Akademik').map((part, i) =>
+                    i === 0 ? part : (
+                      <React.Fragment key={i}>
+                        <span className="text-orange-500">{lang === 'en' ? 'Academic' : 'Akademik'}</span>
+                        {part.split(lang === 'en' ? 'Technological' : 'Teknologi').map((sub, j) =>
+                          j === 0 ? sub : (
+                            <React.Fragment key={j}>
+                              <span className="text-orange-500">{lang === 'en' ? 'Technological' : 'Teknologi'}</span>
+                              {sub}
+                            </React.Fragment>
+                          )
+                        )}
                       </React.Fragment>
                     )
                   )}
-                </React.Fragment>
-              )
-            )}
-          </h1>
-</div>
-          <p className={`mt-6 text-xs md:text-lg text-gray-400 md:max-w-5xl p-2 mx-auto opacity-0 ${heroVisible ? 'anim-fade-up delay-3' : ''}`}>
-          {t('about_desc')}</p> <div className={`opacity-0 ${heroVisible ? 'anim-fade-up delay-4' : ''}`}>
-            <button className="mt-8 bg-biru-dark cursor-pointer text-white px-6 py-3 rounded-lg flex items-center gap-2 mx-auto hover:bg-blue-800">
-               {t('about_botton_contact')} →
-            </button>
+                </h1>
+              </div>
+              <p className={`md:mt-6 text-xs md:text-sm text-gray-400 opacity-0 text-justify w-120 ${heroVisible ? 'anim-fade-up delay-3' : ''}`}>
+                {t('about_desc')}
+              </p>
+              <div className={`opacity-0 ${heroVisible ? 'anim-fade-up delay-4' : ''}`}>
+                <button className="mt-8 bg-biru-dark cursor-pointer text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-blue-800">
+                  {t('about_botton_contact')} →
+                </button>
+              </div>
+            </div>
+            {/* Image Right */}
+            <div className={`flex-1 opacity-0 ${heroVisible ? 'anim-fade-left delay-3' : ''}`}>
+              <Image
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="About Hero"
+                unoptimized
+                width={60}
+                height={70}
+                className="w-full h-auto rounded-2xl object-cover shadow-lg"
+              />
+            </div>
           </div>
-       
         </section>
 
         {/* Stats Section */}
         <section className="bg-blue-950 text-white py-22">
-          <div ref={statsRef} className="max-w-6xl mx-auto grid grid-cols-3 text-center">
+          <div ref={statsRef} className="max-w-7xl mx-auto grid grid-cols-3 text-center">
             {[
               { value: `${client}+`, label: t('about_pengalaman') },
               { value: `${Projects}+` , label: t('about_proyek')},
@@ -121,14 +116,14 @@ const AboutUs = () => {
         </section>
 
         {/* Vision & Mission */}
-        <section className="max-w-6xl mx-auto px-6 py-16 md:py-22 grid md:grid-cols-2 gap-10">
+        <section className="max-w-7xl mx-auto px-6 py-16 md:py-22 grid md:grid-cols-2 gap-10">
           <div ref={visionRef} className={`opacity-0 ${visionVisible ? 'anim-fade-left delay-1' : ''}`}>
             <div className="flex flex-col items-center gap-3 mb-4 md:flex-row md:items-center md:justify-start">
               <Rocket className="text-orange-500" size={28} />
               <h3 className="text-2xl font-bold text-orange-500">{t('about_title_visi')}</h3>
             </div>
             <div className="border border-gray-300 rounded-2xl p-6 bg-white shadow-xl">
-              <p className="text-gray-600 text-sm"> {t('about_desc_visi')} </p>
+              <p className="text-gray-600 text-sm text-justify"> {t('about_desc_visi')} </p>
             
               </div>
           </div>
@@ -151,7 +146,7 @@ const AboutUs = () => {
         </section>
 
         {/* CTA */}
-        <section className="w-full bg-gray-100 py-16 p-8">
+        <section className="w-full bg-gray-200 py-16 bottom-0 p-8">
           <div ref={ctaRef} className={`max-w-5xl mx-auto bg-blue-950 text-center py-12 px-6 rounded-sm opacity-0 ${ctaVisible ? 'anim-scale-in delay-1' : ''}`}>
             <h2 className="text-white text-2xl md:text-3xl font-semibold">
               {t('about_cta_title')}
