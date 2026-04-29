@@ -60,7 +60,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-sm">
-                        © 2026 Entio Academic & Technologhy. <span className='text-gray-400'>All rights reserved.</span>
+                        © 2026 Entio Academic & Technologhy. <span className='text-gray-400'>All rights reserved.</span><br/> version.01
                     </p>
                     <div className="flex gap-6 text-sm">
                          <Link href="#" className="w-10 h-10  hover:bg-white/20  flex items-center justify-center transition-all hover:scale-110">

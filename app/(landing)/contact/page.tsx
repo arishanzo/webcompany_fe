@@ -97,17 +97,17 @@ const Contact = () => {
 
   {/* CTA */}
 <section className="w-full bg-[#f7f7f7] py-10 px-6">
-  <div className="anim-fade-up relative max-w-7xl mx-auto bg-blue-950 text-white py-12 px-6 rounded-xl shadow-xl flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
+  <div className="anim-fade-up relative max-w-7xl mx-auto bg-blue-950  py-12 px-12 rounded-xl shadow-xl flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
     
     {/* Konten kiri */}
     <div className="flex-1 text-center md:text-left">
-      <p className="text-sm tracking-widest uppercase text-blue-300 mb-3 font-medium">
+      <p className="text-sm tracking-widest mb-4 uppercase text-blue-300 mb-3 font-medium">
         Solusi Terbaik untuk Bisnis Anda
       </p>
-      <h2 className="text-2xl md:text-3xl font-bold leading-snug mb-3">
+      <h2 className="text-2xl md:text-3xl mb-4 text-white max-w-lg font-bold leading-snug mb-3">
         Tingkatkan Pertumbuhan dengan Layanan Premium Kami
       </h2>
-      <p className="text-gray-300 text-sm max-w-lg mx-auto md:mx-0 mb-6">
+      <p className="text-gray-400 text-sm max-w-lg mx-auto md:mx-0 mb-6">
         Jangan biarkan peluang lewat begitu saja. Dengan dukungan tim ahli dan strategi yang terbukti, 
         bisnis Anda bisa berkembang lebih cepat, lebih aman, dan lebih menguntungkan. 
         Mulai sekarang dan rasakan perbedaannya!

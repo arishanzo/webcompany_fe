@@ -59,12 +59,12 @@ const Portfolio = () => {
         </section>
 
         {/* SHOWCASE */}
-        <section className="bg-gray-200 py-16">
+        <section className="bg-biru-dark py-16">
           <div ref={showcaseRef} className="anim-fade-up">
             <div className="flex justify-between max-w-7xl mx-auto px-6 items-start mb-10">
               <div>
-                <h3 className="text-base font-semibold mb-2">Lihat Proyek</h3>
-                <p className="text-gray-500 max-w-xl">
+                <h3 className="text-base text-gray-100 font-semibold mb-2">Lihat Proyek</h3>
+                <p className="text-gray-300 max-w-xl">
                   Eksplorasi karya-karya unggulan kami yang menggabungkan estetika modern dengan fungsionalitas teknis tingkat tinggi.
                 </p>
               </div>

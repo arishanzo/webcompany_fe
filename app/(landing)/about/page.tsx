@@ -1,36 +1,25 @@
 'use client'
 
-import { Rocket, Target } from "lucide-react";
+import { Award, Handshake, Lightbulb, Rocket, ShieldCheck, Star, Target, TrendingUp } from "lucide-react";
 import Link from 'next/link';
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import useCountUp from "../../hooks/useCountUp";
 import { useLanguage } from "../../context/LanguageContext";
 import Image from "next/image";
+import useReveal from "../../hooks/useReveal";
 
-const useReveal = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold: 0.15 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-  return { ref, visible };
-};
 
 const AboutUs = () => {
   const { lang,t }= useLanguage();
   const fullText = useMemo(() => (lang === "en" ? t("about_title2") : t("about_title2")), [lang, t]);
-
-  const [displayedText, setDisplayedText] = useState("");
-  const [index, setIndex] = useState(0);
+ 
   const [heroVisible, setHeroVisible] = useState(false);
 
   const { ref: statsRef, visible: statsVisible } = useReveal();
   const { ref: visionRef, visible: visionVisible } = useReveal();
+  const { ref: valuesRef, visible: valuesVisible } = useReveal();
+  const { ref: quoteRef, visible: quoteVisible } = useReveal();
+  const { ref: achieveRef, visible: achieveVisible } = useReveal();
   const { ref: ctaRef, visible: ctaVisible } = useReveal();
   
 
@@ -99,21 +88,40 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="bg-blue-950 text-white py-22">
-          <div ref={statsRef} className="max-w-7xl mx-auto grid grid-cols-3 text-center">
-            {[
-              { value: `${client}+`, label: t('about_pengalaman') },
-              { value: `${Projects}+` , label: t('about_proyek')},
-              { value: `${support}/7`, label: t('support') },
-            ].map((item, i) => (
-              <div key={i} className={`opacity-0 ${statsVisible ? `anim-fade-up` : ''}`} style={{ animationDelay: `${i * 0.15}s` }}>
-                <h2 className="text-4xl md:text-6xl font-bold">{item.value}</h2>
-                <p className="mt-2 text-gray-300">{item.label}</p>
+      
+        {/* Achievements */}
+        <div ref={achieveRef} className=" bg-biru-dark">
+        <section className="max-w-7xl mx-auto px-6 py-16">
+          <div>
+            <div className={`opacity-0 ${achieveVisible ? 'anim-fade-up delay-1' : ''} mb-12`}>
+              <p className="text-sm font-semibold tracking-widest uppercase text-orange-500 mb-2">{t('about_achieve_label')}</p>
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-100 max-w-xl">{t('about_achieve_title')}</h2>
+                <p className="text-gray-400 text-sm max-w-sm text-justify">{t('about_achieve_desc')}</p>
               </div>
-            ))}
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+              {[
+                { value: t('about_achieve_1_value'), label: t('about_achieve_1_label'), icon: <TrendingUp size={20} className="text-orange-500" /> },
+                { value: t('about_achieve_2_value'), label: t('about_achieve_2_label'), icon: <Star size={20} className="text-orange-500" /> },
+                { value: t('about_achieve_3_value'), label: t('about_achieve_3_label'), icon: <Handshake size={20} className="text-orange-500" /> },
+                { value: t('about_achieve_4_value'), label: t('about_achieve_4_label'), icon: <Award size={20} className="text-orange-500" /> },
+              ].map((a, i) => (
+                <div
+                  key={i}
+                  className={`opacity-0 ${achieveVisible ? 'anim-fade-up' : ''} bg-white rounded-2xl p-6 shadow-md border border-gray-100 text-center`}
+                  style={{ animationDelay: `${i * 0.12 + 0.2}s` }}
+                >
+                  <div className="flex justify-center mb-3">{a.icon}</div>
+                  <p className="text-4xl font-extrabold text-blue-950 mb-1">{a.value}</p>
+                  <p className="text-sm text-gray-500">{a.label}</p>
+                </div>
+              ))}
+            </div>
+           
           </div>
         </section>
+        </div>
 
         {/* Vision & Mission */}
         <section className="max-w-7xl mx-auto px-6 py-16 md:py-22 grid md:grid-cols-2 gap-10">
@@ -145,27 +153,64 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="w-full bg-gray-200 py-16 bottom-0 p-8">
-          <div ref={ctaRef} className={`max-w-5xl mx-auto bg-blue-950 text-center py-12 px-6 rounded-sm opacity-0 ${ctaVisible ? 'anim-scale-in delay-1' : ''}`}>
-            <h2 className="text-white text-2xl md:text-3xl font-semibold">
-              {t('about_cta_title')}
-            </h2>
-            <p className="text-gray-300 text-sm mt-3 max-w-2xl mx-auto">
-                 {t('about_cta_desc')}            </p>
-            <div className="mt-6 flex justify-center gap-4">
-              <button className="bg-orange-500 text-white px-5 py-2 text-sm font-semibold hover:bg-orange-600">
-                 {t('about_cta_button')}
-              </button>
-              <Link
-                href="/portfolio"
-                className="border border-white cursor-pointer text-white px-5 py-2 text-sm font-semibold hover:bg-white hover:text-blue-950 transition"
+        {/* Core Values */}
+        <div ref={valuesRef}>
+        <section className="max-w-7xl mx-auto px-6 py-16">
+          <div className={`opacity-0 ${valuesVisible ? 'anim-fade-up delay-1' : ''}`}>
+            <p className="text-sm font-semibold tracking-widest uppercase text-orange-500 mb-2">{t('about_values_label')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12">{t('about_values_title')}</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: <ShieldCheck size={28} className="text-orange-500" />, title: t('about_values_1_title'), desc: t('about_values_1_desc') },
+              { icon: <Lightbulb size={28} className="text-orange-500" />, title: t('about_values_2_title'), desc: t('about_values_2_desc') },
+              { icon: <Handshake size={28} className="text-orange-500" />, title: t('about_values_3_title'), desc: t('about_values_3_desc') },
+              { icon: <Star size={28} className="text-orange-500" />, title: t('about_values_4_title'), desc: t('about_values_4_desc') },
+            ].map((v, i) => (
+              <div
+                key={i}
+                className={`opacity-0 ${valuesVisible ? 'anim-fade-up' : ''} bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
+                style={{ animationDelay: `${i * 0.12 + 0.1}s` }}
               >
-                 {t('about_cta_button2')}
-              </Link>
-            </div>
+                <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4">
+                  {v.icon}
+                </div>
+                <h4 className="font-bold text-gray-800 mb-2">{v.title}</h4>
+                <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
+        </div>
+
+       {/* CTA */}
+<section className="w-full bg-orange-600 bg-gray-200 py-16 bottom-0 p-8">
+  <div
+    ref={ctaRef}
+    className={`mx-auto text-center py-12 px-6 rounded-sm opacity-0 ${
+      ctaVisible ? 'anim-scale-in delay-1' : ''
+    }`}
+  >
+    <h2 className="text-white text-2xl md:text-3xl font-semibold">
+      {t('about_cta_title')}
+    </h2>
+    <p className="text-orange-100 text-sm mt-3 max-w-2xl mx-auto">
+      {t('about_cta_desc')}
+    </p>
+    <div className="mt-6 flex justify-center gap-4">
+      <button className="bg-white text-orange-600 px-5 py-2 text-sm font-semibold rounded hover:bg-orange-50 transition-colors">
+        {t('about_cta_button')}
+      </button>
+      <Link
+        href="/portfolio"
+        className="border border-white cursor-pointer text-white px-5 py-2 text-sm font-semibold rounded hover:bg-white hover:text-orange-600 transition"
+      >
+        {t('about_cta_button2')}
+      </Link>
+    </div>
+  </div>
+</section>
+
 
       </div>
     </>

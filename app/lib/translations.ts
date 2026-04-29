@@ -40,12 +40,46 @@ export const translations: Record<string, Record<string, string>> = {
      // About Visi Misi Perusahaan
     about_title_visi: 'Visi Perusahaan',
     about_title_misi: 'Misi Perusahaan',
-    about_desc_visi: "Menjadi mitra terpercaya dalam transformasi digital dan pengembangan sumber daya manusia di bidang teknologi informasi dan pendidikan",
+    about_desc_visi: "Menjadi mitra terpercaya dalam mendampingi organisasi, perusahaan, dan individu dalam menjalani transformasi digital yang berkelanjutan serta pengembangan sumber daya manusia yang unggul, khususnya di bidang teknologi informasi dan pendidikan. Kami berkomitmen menghadirkan solusi inovatif, aman, dan mudah diakses, yang tidak hanya meningkatkan efisiensi operasional, tetapi juga membuka peluang baru untuk pertumbuhan, kolaborasi, dan penciptaan nilai tambah.",
     about_desc_misi1: "Memberikan solusi teknologi inovatif",
      about_desc_misi2: "Menyediakan pendidikan IT berkualitas",
       about_desc_misi3: "Memberdayakan individu dan organisasi",
        about_desc_misi4: "Mengembangkan produk kreatif",
         about_desc_misi5: "Membangun ekosistem kolaboratif",
+
+      // About Core Values
+      about_values_label: 'Nilai Yang Kami Pegang',
+      about_values_title: 'Fondasi yang Membangun Kepercayaan',
+      about_values_1_title: 'Integritas',
+      about_values_1_desc: 'Setiap keputusan dan solusi yang kami hadirkan dilandasi kejujuran, transparansi, dan tanggung jawab penuh kepada klien.',
+      about_values_2_title: 'Inovasi',
+      about_values_2_desc: 'Kami terus mendorong batas teknologi untuk menghadirkan solusi yang relevan, adaptif, dan berdampak nyata bagi bisnis Anda.',
+      about_values_3_title: 'Kolaborasi',
+      about_values_3_desc: 'Kami percaya hasil terbaik lahir dari kemitraan yang erat — bersama klien, tim, dan ekosistem industri.',
+      about_values_4_title: 'Keunggulan',
+      about_values_4_desc: 'Standar kualitas tinggi bukan sekadar target, melainkan komitmen kami di setiap lini layanan dan produk yang kami bangun.',
+
+      // About Director Quote
+      about_quote_label: 'Dari Direktur Kami',
+      about_quote_text: '"Kami tidak hanya membangun teknologi — kami membangun kepercayaan. Setiap proyek adalah cerminan dedikasi kami untuk memberikan dampak nyata bagi klien dan masyarakat luas."',
+      about_quote_name: 'Ahmad Fauzi, S.Kom.',
+      about_quote_role: 'Direktur Utama, PT Intio Academic & Technology',
+
+      // About Achievements
+      about_achieve_label: 'Kepercayaan & Pencapaian',
+      about_achieve_title: 'Dipercaya oleh Ratusan Klien di Seluruh Indonesia',
+      about_achieve_desc: 'Selama lebih dari 5 tahun, kami telah mendampingi institusi pendidikan, perusahaan swasta, dan lembaga pemerintah dalam perjalanan transformasi digital mereka.',
+      about_achieve_1_value: '150+',
+      about_achieve_1_label: 'Proyek Selesai',
+      about_achieve_2_value: '98%',
+      about_achieve_2_label: 'Tingkat Kepuasan Klien',
+      about_achieve_3_value: '50+',
+      about_achieve_3_label: 'Mitra Institusi',
+      about_achieve_4_value: '5+',
+      about_achieve_4_label: 'Tahun Pengalaman',
+      about_achieve_badge1: 'ISO 9001 Certified',
+      about_achieve_badge2: 'AWS Partner Network',
+      about_achieve_badge3: 'Google for Education',
 
       // About Call To Action
       about_cta_title: 'Siap Jadi Perubahan Di Jaman Sekarang?',
@@ -150,12 +184,46 @@ export const translations: Record<string, Record<string, string>> = {
      // About Visi Misi Perusahaan
     about_title_visi: 'Company Vision',
     about_title_misi: 'Company Mission',
-    about_desc_visi: "To be a trusted partner in digital transformation and human resource development in the fields of information technology and education",
+    about_desc_visi: "To become a trusted partner in accompanying organizations, companies, and individuals through sustainable digital transformation and the development of outstanding human resources, particularly in the fields of information technology and education. We are committed to delivering innovative, secure, and accessible solutions that not only enhance operational efficiency but also open new opportunities for growth, collaboration, and value creation.",
     about_desc_misi1: "Providing innovative technology solutions",
      about_desc_misi2: "Providing quality IT education",
       about_desc_misi3: "Empowering individuals and organizations",
        about_desc_misi4: "Developing creative products",
         about_desc_misi5: "Building a collaborative ecosystem",
+
+      // About Core Values
+      about_values_label: 'Our Core Values',
+      about_values_title: 'The Foundation That Builds Trust',
+      about_values_1_title: 'Integrity',
+      about_values_1_desc: 'Every decision and solution we deliver is grounded in honesty, transparency, and full accountability to our clients.',
+      about_values_2_title: 'Innovation',
+      about_values_2_desc: 'We continuously push the boundaries of technology to deliver solutions that are relevant, adaptive, and impactful for your business.',
+      about_values_3_title: 'Collaboration',
+      about_values_3_desc: 'We believe the best results come from close partnerships — with clients, our team, and the broader industry ecosystem.',
+      about_values_4_title: 'Excellence',
+      about_values_4_desc: 'High quality standards are not just a target — they are our commitment across every service and product we build.',
+
+      // About Director Quote
+      about_quote_label: 'From Our Director',
+      about_quote_text: '"We don\'t just build technology — we build trust. Every project reflects our dedication to delivering real impact for our clients and the wider community."',
+      about_quote_name: 'Ahmad Fauzi, S.Kom.',
+      about_quote_role: 'Chief Executive Officer, PT Intio Academic & Technology',
+
+      // About Achievements
+      about_achieve_label: 'Trust & Achievements',
+      about_achieve_title: 'Trusted by Hundreds of Clients Across Indonesia',
+      about_achieve_desc: 'For over 5 years, we have supported educational institutions, private companies, and government agencies on their digital transformation journey.',
+      about_achieve_1_value: '150+',
+      about_achieve_1_label: 'Projects Completed',
+      about_achieve_2_value: '98%',
+      about_achieve_2_label: 'Client Satisfaction Rate',
+      about_achieve_3_value: '50+',
+      about_achieve_3_label: 'Institutional Partners',
+      about_achieve_4_value: '5+',
+      about_achieve_4_label: 'Years of Experience',
+      about_achieve_badge1: 'ISO 9001 Certified',
+      about_achieve_badge2: 'AWS Partner Network',
+      about_achieve_badge3: 'Google for Education',
 
       // About Call To Action
       about_cta_title: 'Ready to Be the Change in Todays Era?',
