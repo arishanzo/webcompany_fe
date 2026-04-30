@@ -100,7 +100,7 @@ export const translations: Record<string, Record<string, string>> = {
 
     services_title3: 'Website Kustom & Web Apps',
     services_subtitle3: 'Membangun platform web performa tinggi dengan arsitektur modern yang skalabel dan aman.',
-    services_button3: 'LIHAT DETAIL PROYEK',
+    services_button3: 'Konsultasi Website & Web App',
 
     services_title4: 'Aplikasi Mobile',
     services_subtitle4: 'Pengembangan aplikasi iOS dan Android native atau cross-platform dengan performa lancar.',
