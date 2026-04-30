@@ -13,7 +13,9 @@ const Berita = () => {
     const [activeCategory, setActiveCategory] = useState("Semua");
     const [search, setSearch] = useState("");
     const [current, setCurrent] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
     const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const cols = isMobile ? 1 : 3;
 
     const filtered = useMemo(() =>
         allArtikel.filter((a) => {
@@ -51,15 +53,12 @@ const Berita = () => {
         startAuto();
     };
 
-    const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         const check = () => setIsMobile(window.innerWidth < 768);
         check();
         window.addEventListener('resize', check);
         return () => window.removeEventListener('resize', check);
     }, []);
-
-    const cols = isMobile ? 1 : 3;
 
     const carouselRef = useFadeUp();
     const newsletterRef = useFadeUp();

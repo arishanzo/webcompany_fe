@@ -13,16 +13,24 @@ const Portfolio = () => {
     const client = useCountUp(100);
     const [current, setCurrent] = useState(0);
     const total = allProjects.length;
+     const [isMobile, setIsMobile] = useState(false);
     const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
+       const cols = isMobile ? 1 : 3;
 
-    const startAuto = () => {
-        autoRef.current = setInterval(() => setCurrent((p) => (p + 1) % total), 3000);
+    const looped = [...allProjects, ...allProjects];
+const startAuto = () => {
+        if (total > 0) {
+            autoRef.current = setInterval(() => setCurrent((p) => (p + 1) % total), 3000);
+        }
     };
 
     useEffect(() => {
-        startAuto();
+        if (autoRef.current) clearInterval(autoRef.current);
+        if (total > 0) {
+            startAuto();
+        }
         return () => { if (autoRef.current) clearInterval(autoRef.current); };
-    }, []);
+    }, [total]);
 
     const prev = () => {
         if (autoRef.current) clearInterval(autoRef.current);
@@ -36,7 +44,14 @@ const Portfolio = () => {
         startAuto();
     };
 
-    const looped = [...allProjects, ...allProjects];
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+
+  
 
     const statsRef = useFadeUp();
     const showcaseRef = useFadeUp();
@@ -80,11 +95,12 @@ const Portfolio = () => {
 
             <div className="overflow-hidden max-w-7xl mx-auto px-6">
               <div
-                className="flex gap-6 transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(calc(-${current * (100 / 3)}% - ${current * (24 / 3)}px))` }}
+                  className="flex gap-4 transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(calc(-${current * (100 / cols)}% - ${current * (32 / cols)}px))` }}
               >
                 {looped.map((item, idx) => (
-                  <div key={idx} className="card-hover bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex-shrink-0 w-[calc(33.333%-16px)]">
+                  <div key={idx} className={`card-hover bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex-shrink-0 w-[calc(33.333%-16px)] ${isMobile ? 'w-full' : 'w-[calc(33.333%-22px)]'}
+                  `}>
                     <div className="img-zoom">
                       <Image
                         src={item.img}

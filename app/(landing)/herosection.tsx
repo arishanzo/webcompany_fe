@@ -8,7 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 const slides = [
   {
-    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978',
+    src: 'https://images.unsplash.com/photo-1519074002996-a69e7ac46a42?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: 'team collaboration',
   },
 ];
@@ -79,6 +79,7 @@ const HeroSection = () => {
                 src={`${slides[current].src}?auto=format&fit=crop&w=800&q=80`}
                 alt={slides[current].alt}
                 fill
+                unoptimized
                 className={`object-cover transition-all duration-500 ${animating ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}`}
               />
               {/* Gradient overlay */}

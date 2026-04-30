@@ -93,7 +93,7 @@ export const translations: Record<string, Record<string, string>> = {
     services_subtitle: 'Solusi Teknologi & Transformasi Akademik',
     services_subtitle_hero: 'Kami menggabungkan presisi akademis dengan inovasi teknologi untuk membangun masa depan digital yang tangguh dan cerdas.',
     services_button: 'Mulai Konsultasi',
-    services_button2: 'Pelajari Akademi',
+    services_button2: 'Pilih Layanan',
 
     services_title2: 'Layanan Teknologi',
     services_subtitle2: 'Pengembangan Digital',
@@ -236,7 +236,7 @@ export const translations: Record<string, Record<string, string>> = {
     services_subtitle: 'We provide various technology services for your business needs.',
      services_subtitle_hero: 'We combine academic precision with technological innovation to build a resilient and intelligent digital future.',
     services_button: 'Start Consultation',
-    services_button2: 'Learn about the Academy',
+    services_button2: 'Pilih Layanan',
 
     services_title2: 'Technology Services',
     services_subtitle2: 'Digital Development',

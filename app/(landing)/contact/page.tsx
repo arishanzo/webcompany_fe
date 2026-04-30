@@ -4,6 +4,7 @@ import Image from "next/image";
 import InfoItem from "./infoItem";
 import InputText from "../ui/inputtext";
 import { useLanguage } from "../../context/LanguageContext";
+import Link from "next/link";
 
 const Contact = () => {
 
@@ -115,12 +116,12 @@ const Contact = () => {
 
       {/* Button di bawah teks */}
       <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 text-sm font-semibold rounded transition-colors">
-          Mulai Sekarang
-        </button>
-        <button className="border border-white text-white px-6 py-3 text-sm font-semibold rounded hover:bg-white hover:text-blue-950 transition-colors">
+        <Link href={'/layanan'} className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 text-sm font-semibold rounded transition-colors">
+          Lihat Layanan
+        </Link>
+        <Link href="https://wa.me/6281122225804" className="border border-white text-white px-6 py-3 text-sm font-semibold rounded hover:bg-white hover:text-blue-950 transition-colors">
           Konsultasi Gratis
-        </button>
+        </Link>
       </div>
     </div>
 

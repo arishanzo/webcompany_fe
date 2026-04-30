@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react"
 import { useFadeUp } from "../../hooks/useFadeUp";
 import akademiCards from "../../lib/layananCards";
 import { useLanguage } from "../../context/LanguageContext";
+import Link from "next/link";
 
 const Services = () => {
     const [current, setCurrent] = useState(0);
@@ -45,7 +46,7 @@ const Services = () => {
         <>
         
 
-        <div className="font-sans text-gray-800">
+        <div className="font-sans text-gray-800 scroll-smooth">
           {/* HERO */}
           <section className="relative text-white bg-cover bg-center"
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920')" }}>
@@ -61,18 +62,18 @@ const Services = () => {
                {t('services_subtitle_hero')}
               </p>
               <div className="hero-line-4 flex gap-4">
-                <button className="btn-shine bg-orange-600 px-6 py-3 rounded font-semibold">
+                <Link href="https://wa.me/6281122225804"  className="btn-shine bg-orange-600 px-6 py-3 rounded font-semibold">
                 {t('services_button')}
-                </button>
-                <button className="btn-outline-hover border border-gray-400 px-6 py-3 rounded">
+                </Link>
+               <Link href={'#layanan'} className="btn-outline-hover border border-gray-400 px-6 py-3 rounded">
                 {t('services_button2')}
-                </button>
+                </Link>
               </div>
             </div>
           </section>
 
           {/* LAYANAN */}
-          <section className="py-16 bg-white">
+          <section id="layanan"  className="py-16 bg-white">
             <div ref={layananRef} className="anim-fade-up max-w-7xl mx-auto px-6">
               <p className="text-sm text-gray-500 mb-2">•{t('services_title2')}</p>
               <h2 className="text-3xl font-bold mb-10">{t('services_subtitle2')}</h2>
@@ -84,9 +85,7 @@ const Services = () => {
                   <p className="text-gray-600 mb-6">
                     {t('services_subtitle3')}
                   </p>
-                  <button className="text-sm font-semibold pt-8 hover:text-orange-600 transition-colors">
-                  {t('services_button3')}
-                  </button>
+            
                 </div>
 
                 <div className="card-hover bg-biru-dark text-white p-6 rounded-lg py-16">
@@ -103,7 +102,7 @@ const Services = () => {
           </section>
 
           {/* AKADEMI */}
-          <section className="py-16 bg-gray-100">
+          <section  className="py-16 bg-gray-100">
             <div ref={akademiRef} className="anim-fade-up max-w-7xl mx-auto px-6">
               <div className="flex justify-between items-center mb-10">
                 <div>
