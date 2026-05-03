@@ -106,7 +106,7 @@ export const translations: Record<string, Record<string, string>> = {
     services_subtitle4: 'Pengembangan aplikasi iOS dan Android native atau cross-platform dengan performa lancar.',
 
     services_card_title: 'Akademi & Edukasi IT',
-    services_card_subtitle: 'rogram pelatihan intensif untuk mencetak talenta digital.',
+    services_card_subtitle: 'Program pelatihan intensif untuk mencetak talenta digital.',
 
     services_title_sertfikasi: 'Sertifikasi Internasional',
     services_subtitle_sertfikasi: 'Persiapan ujian sertifikasi global untuk memvalidasi keahlian teknis Anda di mata dunia.',

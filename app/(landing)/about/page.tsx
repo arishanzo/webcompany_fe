@@ -15,10 +15,8 @@ const AboutUs = () => {
  
   const [heroVisible, setHeroVisible] = useState(false);
 
-  const { ref: statsRef, visible: statsVisible } = useReveal();
   const { ref: visionRef, visible: visionVisible } = useReveal();
   const { ref: valuesRef, visible: valuesVisible } = useReveal();
-  const { ref: quoteRef, visible: quoteVisible } = useReveal();
   const { ref: achieveRef, visible: achieveVisible } = useReveal();
   const { ref: ctaRef, visible: ctaVisible } = useReveal();
   

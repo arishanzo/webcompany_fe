@@ -51,6 +51,8 @@ const startAuto = () => {
         return () => window.removeEventListener('resize', check);
     }, []);
 
+
+    
   
 
     const statsRef = useFadeUp();
