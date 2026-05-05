@@ -80,11 +80,11 @@ const Services = () => {
       </section>
 
       {/* SEMUA LAYANAN */}
-      <section id="layanan" className="py-20 bg-gray-50">
+      <section id="layanan" className="py-20 bg-gray-100">
         <div ref={layananRef} className="max-w-7xl mx-auto px-6">
           <div className={`text-start mb-14 opacity-0 ${layananVisible ? 'anim-fade-up delay-1' : ''}`}>
-            <span className="text-sm text-gray-700 font-semibold tracking-widest uppercase">• {t('services_title2')}</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">{t('services_subtitle2')}</h2>
+            <span className="text-sm text-gray-700 font-semibold tracking-widest uppercase">• Layanan Teknologi</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Pengembangan Digital</h2>
             <p className="text-gray-500 max-w-xl">Solusi lengkap dari pengembangan produk digital hingga pelatihan SDM teknologi.</p>
           </div>
 
@@ -113,7 +113,7 @@ const Services = () => {
       </section>
 
       {/* DETAIL WEB & MOBILE */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-gray-100">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
 
           {/* Web Dev */}
@@ -183,7 +183,7 @@ const Services = () => {
       </section>
 
       {/* AKADEMI CAROUSEL */}
-      <section className="py-20 md:mt-32 bg-gray-100 overflow-hidden">
+      <section className="py-20 bg-gray-200 overflow-hidden">
         <div ref={akademiRef} className="max-w-7xl mx-auto px-6">
           <div className={`flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 opacity-0 ${akademiVisible ? 'anim-fade-up delay-1' : ''}`}>
             <div>

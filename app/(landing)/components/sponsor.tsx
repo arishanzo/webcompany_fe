@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { useLanguage } from "../../context/LanguageContext";
 
 const techStack = [
@@ -24,7 +25,7 @@ const Sponsor = () => {
   return (
     <>
 
-      <section className="w-full bg-white border-y border-gray-100 py-8">
+      <section className="w-full bg-gray-100 border-y border-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
             {t('hero_section_tech')}
@@ -32,20 +33,21 @@ const Sponsor = () => {
         </div>
 
         <div className="overflow-hidden relative max-w-7xl justify-center mx-auto mb-4">
-          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-          <div className="marquee-track">
+        
+          <div className="marquee-track mt-4 flex items-center gap-12">
             {doubled.map((tech, i) => (
               <div
                 key={i}
                 className="flex flex-col items-center justify-center mx-8 gap-2 grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300 cursor-default"
                 style={{ minWidth: '80px' }}
               >
-                <img
+                <Image
                   src={tech.logo}
                   alt={`${tech.name} logo`}
                   className="h-8 w-8 object-contain"
+                  width={8}
+                  height={8}
+                  unoptimized
                 />
                 <span className="text-xs font-medium text-gray-500 whitespace-nowrap">{tech.name}</span>
               </div>

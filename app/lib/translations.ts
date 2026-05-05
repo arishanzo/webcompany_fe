@@ -13,7 +13,7 @@ export const translations: Record<string, Record<string, string>> = {
     hero_title: 'Solusi Digital untuk Bisnis Anda',
     hero_subtitle: 'Solusi Teknologi,',
     hero_subtitle2: 'Kreativitas, & Akademik',
-    hero_deskripsi: 'Mendorong transformasi digital yang relevan, fungsional, dan berkelanjutan untuk bisnis dan dunia pendidikan. Intio Academic & Technology hadir untuk menjawab tantangan modern dengan pendekatan inovatif dan terintegrasi.',
+    hero_deskripsi: 'Menghadirkan solusi berbasis teknologi yang inovatif, mengasah kreativitas tanpa batas, dan memperkuat fondasi akademik untuk membangun masa depan yang berdaya saing global.',
     hero_cta: 'Tentang Kami',
     hero_cta_secondary: 'Lihat Portfolio',
 

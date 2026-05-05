@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import useCountUp from "../../hooks/useCountUp";
 import allProjects from "../../lib/allProjects";
-import { useFadeUp } from "../../hooks/useFadeUp";
+import useReveal from "../../hooks/useReveal";
 
 
 const Portfolio = () => {
@@ -52,20 +52,29 @@ const startAuto = () => {
     }, []);
 
 
-    
+      const [visible, setVisible] = useState(false);
   
 
-    const statsRef = useFadeUp();
-    const showcaseRef = useFadeUp();
-    const testiRef = useFadeUp();
+      
+  const { ref: statsRef, visible: statsVisible } = useReveal();
+  const { ref: showcaseRef, visible: showcaseVisible } = useReveal();
+  const { ref: testiRef, visible: testiVisible } = useReveal();
+  
+  
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(t);
+  }, []);
 
+  
     return (
         <>
       
 <div className="w-full bg-gray-100">
         {/* STATS */}
-        <section className="text-center  md:py-24 mt-24 mb-8">
-          <div ref={statsRef} className="anim-fade-up grid grid-cols-3 max-w-5xl p-8 mx-auto">
+        <section ref={statsRef} className="text-center  md:py-24 mt-24 mb-8">
+            <div className={`opacity-0 ${statsVisible ? 'anim-fade-up delay-1' : ''}  grid grid-cols-3 max-w-5xl p-8 mx-auto`}>
+         
             {["Proyek Komplit", "Klien Global", "Instruktur Berpengalaman"].map((t, i) => (
               <div key={i} className={`stat-pop stat-pop-${i + 1}`}>
                 <h2 className="md:text-5xl text-3xl font-bold text-orange-600">{i === 2 ? `${projects}+` : `${client}+`}</h2>
@@ -76,8 +85,8 @@ const startAuto = () => {
         </section>
 
         {/* SHOWCASE */}
-        <section className="bg-biru-dark py-16">
-          <div ref={showcaseRef} className="anim-fade-up">
+        <section ref={showcaseRef} className="bg-biru-dark py-16">
+        <div className={`opacity-0 ${showcaseVisible ? 'anim-fade-up delay-1' : ''}`}>
             <div className="flex justify-between max-w-7xl mx-auto px-6 items-start mb-10">
               <div>
                 <h3 className="text-base text-gray-100 font-semibold mb-2">Lihat Proyek</h3>
@@ -143,8 +152,8 @@ const startAuto = () => {
         </section>
 
         {/* TESTIMONI */}
-        <section className="py-20 px-16 max-w-7xl mx-auto">
-          <div ref={testiRef} className="anim-fade-up">
+        <section ref={testiRef} className="py-20 px-16 max-w-7xl mx-auto">
+          <div className={`opacity-0 ${testiVisible ? 'anim-fade-up delay-1' : ''}`}>
             <div className="flex justify-between items-center mb-8">
               <h2 className="text-2xl font-bold">Apa Kata Mereka?</h2>
               <a className="text-blue-600 text-sm cursor-pointer hover:underline">Lihat Semua →</a>

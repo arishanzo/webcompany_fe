@@ -3,8 +3,8 @@
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useFadeUp } from "../../hooks/useFadeUp";
 import allArtikel from "../../lib/allArtikel";
+import useReveal from "../../hooks/useReveal";
 
 
 const CATEGORIES = ["Semua", "Teknologi", "Akademik", "Desain Kreatif", "Event"];
@@ -60,8 +60,16 @@ const Berita = () => {
         return () => window.removeEventListener('resize', check);
     }, []);
 
-    const carouselRef = useFadeUp();
-    const newsletterRef = useFadeUp();
+  
+   const [visible, setVisible] = useState(false);
+   const { ref: carouselRef, visible: carouselVisible } = useReveal();
+   const { ref: newsletterRef, visible: newsletterVisible } = useReveal();
+
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(t);
+  }, []);
+
 
     return (
         <>
@@ -132,7 +140,7 @@ const Berita = () => {
               <p className="text-center text-gray-400 py-16">Tidak ada artikel ditemukan.</p>
             ) : (
               <div ref={carouselRef} className="anim-fade-up">
-                <div className="flex justify-end gap-2 mb-6">
+                <div  className={`opacity-0 ${newsletterVisible? 'anim-fade-up  delay-1' : ''} flex justify-end gap-2 mb-6`}>
                   <button onClick={prev} className="bg-gray-200 hover:bg-gray-300 p-2 rounded cursor-pointer transition-colors">
                     <ChevronLeft className="w-5 h-5" />
                   </button>
@@ -189,7 +197,7 @@ const Berita = () => {
          <div className="p-2">
 <section
   ref={newsletterRef}
-  className="anim-fade-up max-w-7xl mx-auto mb-20 bg-orange-600 text-white rounded-lg p-6 sm:p-10 md:p-12 flex flex-col md:flex-row items-center md:items-start justify-between gap-8"
+ className={`opacity-0 ${newsletterVisible? 'anim-fade-up  delay-1' : ''} max-w-7xl mx-auto mb-20 bg-orange-600 text-white rounded-lg p-6 sm:p-10 md:p-12 flex flex-col md:flex-row items-center md:items-start justify-between gap-8`}
 >
   {/* Konten kiri */}
   <div className="flex-1 text-center md:text-left">
