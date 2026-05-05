@@ -126,7 +126,7 @@ const HeroSection = () => {
             </div>
 
             <div className="float-card-2 absolute bottom-5 left-0 bg-white shadow-lg rounded-lg px-4 py-3 text-sm border border-orange-100">
-              <p className="font-semibold">100+ Proyek</p>
+              <p className="font-semibold">75+ Proyek</p>
               <p className="text-gray-500">Telah diselesaikan</p>
             </div>
 
@@ -160,7 +160,7 @@ const HeroSection = () => {
                 className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-orange-400/40"
               >
                 <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-orange-500/10 mb-6 group-hover:bg-orange-500/20 transition">
-                  <Icon className="w-7 h-7 text-orange-400" />
+                  <Icon className="w-7 h-7 text-gray-200" />
                 </div>
 
                 <h3 className="text-xl font-semibold text-white mb-3">

@@ -9,8 +9,10 @@ import useReveal from "../../hooks/useReveal";
 
 
 const Portfolio = () => {
-    const projects = useCountUp(15);
-    const client = useCountUp(100);
+    const projects = useCountUp(75);
+    const client = useCountUp(5);
+    const Proyek = useCountUp(70);
+
     const [current, setCurrent] = useState(0);
     const total = allProjects.length;
      const [isMobile, setIsMobile] = useState(false);
@@ -75,9 +77,9 @@ const startAuto = () => {
         <section ref={statsRef} className="text-center  md:py-24 mt-24 mb-8">
             <div className={`opacity-0 ${statsVisible ? 'anim-fade-up delay-1' : ''}  grid grid-cols-3 max-w-5xl p-8 mx-auto`}>
          
-            {["Proyek Komplit", "Klien Global", "Instruktur Berpengalaman"].map((t, i) => (
+            {["Proyek Komplit", "Klien Kami", "Proyek Sedang Berjalan"].map((t, i) => (
               <div key={i} className={`stat-pop stat-pop-${i + 1}`}>
-                <h2 className="md:text-5xl text-3xl font-bold text-orange-600">{i === 2 ? `${projects}+` : `${client}+`}</h2>
+                <h2 className="md:text-5xl text-3xl font-bold text-orange-600">{i === 0 ? `${Proyek}+` : i === 2 ? `${client}+` : `${projects}+`}</h2>
                 <p className="text-xs tracking-[0.3em] mt-3 text-gray-500">{t}</p>
               </div>
             ))}
