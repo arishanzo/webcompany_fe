@@ -1,7 +1,7 @@
 
 
 type InfoItemProps = {
-  icon: string;   // tipe untuk icon dari lucide-react
+  icon: React.ReactNode;   // tipe untuk icon dari lucide-react
   title: string;
   value: string;
 };

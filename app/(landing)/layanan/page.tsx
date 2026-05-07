@@ -1,7 +1,9 @@
 'use client'
 
-import { CheckCircle2, ChevronLeft, ChevronRight, Smartphone, Code2, Database, Shield, Zap, Users } from "lucide-react"
+import { CheckCircle2, ChevronLeft, ChevronRight, Smartphone, Code2, Database, Shield, Zap, Users, Monitor, BarChart2, BookOpen, LucideIcon } from "lucide-react"
 import Image from "next/image"
+
+const iconMap: Record<string, LucideIcon> = { Monitor, BarChart2, Code2, BookOpen };
 import { useEffect, useRef, useState } from "react"
 import akademiCards from "../../lib/layananCards";
 import { useLanguage } from "../../context/LanguageContext";
@@ -58,22 +60,22 @@ const Services = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-blue-900/50" />
         <div className="relative max-w-7xl mx-auto px-6 py-32">
           <span className={`inline-block text-xs tracking-widest text-orange-400 bg-orange-400/10 border border-orange-400/30 px-3 py-1 rounded-full mb-5 opacity-0 ${heroVisible ? 'hero-line-1' : ''}`}>
-            {t('services_title')}
+            EKSPERTIS DIGITAL & EDUKASI
           </span>
           <h1 className={`text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-3xl opacity-0 ${heroVisible ? 'hero-line-2' : ''}`}>
-            {t('services_subtitle')}
+           Solusi Teknologi & Transformasi Akademik
           </h1>
           <p className={`text-gray-300 max-w-xl mb-10 text-lg leading-relaxed opacity-0 ${heroVisible ? 'hero-line-3' : ''}`}>
-            {t('services_subtitle_hero')}
+           Kami menggabungkan presisi akademis dengan inovasi teknologi untuk membangun masa depan digital yang tangguh dan cerdas.
           </p>
           <div className={`flex flex-wrap gap-4 opacity-0 ${heroVisible ? 'hero-line-4' : ''}`}>
             <Link href="https://wa.me/6281122225804"
               className="btn-shine text-white px-7 py-3.5 rounded-lg font-semibold shadow-lg shadow-orange-600/30">
-              {t('services_button')}
+              Mulai Konsultasi
             </Link>
             <Link href="#layanan"
               className="btn-outline-hover border border-white/40 px-7 py-3.5 rounded-lg">
-              {t('services_button2')}
+              Pilih Layanan
             </Link>
           </div>
         </div>
@@ -97,7 +99,7 @@ const Services = () => {
                   <Icon className={`${color} w-6 h-6`} />
                 </div>
                 <h3 className="font-bold text-lg mb-2">{t(titleKey)}</h3>
-                <p className="text-gray-500 text-sm mb-5 leading-relaxed flex-1">{t(descKey)}</p>
+                <p className="text-gray-500 text-sm mb-5 leading-relaxed">{t(descKey)}</p>
                 <ul className="space-y-2">
                   {features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
@@ -136,14 +138,14 @@ const Services = () => {
               </div>
               <Link href="https://wa.me/6281122225804"
                 className="btn-shine inline-block text-white px-6 py-3 rounded-lg font-semibold">
-                {t('services_button3')}
+               Konsultasi Website & Web App
               </Link>
             </div>
             <div className={`opacity-0 ${webVisible ? 'anim-fade-right delay-2' : ''} img-zoom relative rounded-2xl overflow-hidden shadow-2xl aspect-video`}>
               <Image src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800" alt="Web Dev" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur rounded-lg px-4 py-2 text-sm font-semibold text-gray-800">
-                🚀 100+ Website Diluncurkan
+                🚀 70+ Website & Web App Diluncurkan
               </div>
             </div>
           </div>
@@ -158,9 +160,9 @@ const Services = () => {
               </div>
             </div>
             <div className={`order-1 md:order-2 opacity-0 ${mobileVisible ? 'anim-fade-right delay-2' : ''}`}>
-              <span className="text-xs font-semibold text-gray-600 tracking-widest uppercase py-1 rounded-full">Mobile Development</span>
-              <h2 className="text-3xl font-bold mt-4 mb-4">{t('services_title4')}</h2>
-              <p className="text-gray-500 leading-relaxed mb-6">{t('services_subtitle4')}</p>
+              <span className="text-xs font-semibold text-gray-600 tracking-widest uppercase py-1 rounded-full">Pengembangan Aplikasi</span>
+              <h2 className="text-3xl font-bold mt-4 mb-4">Pengembangan Aplikasi Mobile & Web Based</h2>
+              <p className="text-gray-500 leading-relaxed mb-6">Pengembangan aplikasi iOS dan Android native atau cross-platform dengan performa lancar.</p>
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {[
                   { icon: Smartphone, label: "React Native & Flutter" },
@@ -175,7 +177,7 @@ const Services = () => {
               </div>
               <Link href="https://wa.me/6281122225804"
                 className="btn-shine inline-block text-white px-6 py-3 rounded-lg font-semibold">
-                Konsultasi Mobile App
+                Konsultasi Mobile & Web Based App
               </Link>
             </div>
           </div>
@@ -187,8 +189,11 @@ const Services = () => {
         <div ref={akademiRef} className="max-w-7xl mx-auto px-6">
           <div className={`flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 opacity-0 ${akademiVisible ? 'anim-fade-up delay-1' : ''}`}>
             <div>
-              <span className="text-xs font-semibold text-orange-400 tracking-widest uppercase">• {t('services_card_title')}</span>
-              <h2 className="text-3xl font-bold mt-2">{t('services_card_subtitle')}</h2>
+              <span className="text-xs font-semibold text-orange-400 tracking-widest uppercase">• Akademi</span>
+              <h2 className="text-3xl font-bold mt-2">Pendidikan & Pelatihan</h2>
+              <span className="text-gray-600 text-base">
+              Riwayat pendidikan formal dan pelatihan profesional yang mendukung pengembangan keterampilan serta kompetensi.
+            </span>
             </div>
             <div className="flex gap-3">
               <button onClick={prev} className="w-10 h-10 rounded-full border border-gray-300 hover:bg-gray-200 flex items-center justify-center transition-colors">
@@ -203,23 +208,23 @@ const Services = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {[0, 1, 2].map((offset) => {
               const card = akademiCards[(current + offset) % total];
+              const Icon = iconMap[card.icon];
               return (
                 <div key={offset}
                   className={`opacity-0 ${akademiVisible ? 'anim-fade-up' : ''} relative rounded-2xl overflow-hidden group transition-all duration-500 ${offset === 0 ? "md:col-span-1 row-span-2" : ""}`}
                   style={{ animationDelay: `${offset * 0.15 + 0.2}s` }}>
-                  <div className="relative aspect-video md:aspect-auto md:h-64">
-                    <Image src={card.img} alt={card.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className={`relative flex flex-col items-center justify-center bg-gradient-to-br ${card.bg} aspect-video md:aspect-auto md:h-64 p-6`}>
+                    <Icon className="w-16 h-16 text-white/80 mb-4 group-hover:scale-110 transition-transform duration-500" />
                     {card.badge && (
                       <span className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                         {card.badge}
                       </span>
                     )}
-                    <div className="absolute text-white bottom-0 left-0 right-0 p-5">
+                    <div className="text-white text-center">
                       <h3 className="font-bold text-lg mb-1">{card.title}</h3>
-                      <p className="text-gray-300 text-sm mb-3">{card.desc}</p>
+                      <p className="text-white/70 text-sm mb-3">{card.desc}</p>
                       <Link href="https://wa.me/6281122225804"
-                        className="inline-block text-xs font-semibold bg-biru-dark hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+                        className="inline-block text-xs font-semibold bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors">
                         {card.btn}
                       </Link>
                     </div>

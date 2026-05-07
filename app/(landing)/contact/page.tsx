@@ -5,6 +5,8 @@ import InfoItem from "./infoItem";
 import InputText from "../ui/inputtext";
 import { useLanguage } from "../../context/LanguageContext";
 import Link from "next/link";
+import { FaFacebook, FaInstagram, FaPhone, FaThreads, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 const Contact = () => {
 
@@ -23,15 +25,15 @@ const Contact = () => {
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop')" }}
       >
         <div className="absolute inset-0 bg-white/80" />
-        <div className="relative z-10 flex h-full flex-col justify-center px-6 max-w-7xl mt-22 mx-auto w-full">
+        <div className="relative z-10 flex h-full flex-col justify-center px-6 max-w-7xl md:mt-22 mt-12 p-6 mx-auto w-full">
           <p className="hero-label text-sm tracking-[0.35em] font-medium uppercase text-gray-800 mb-5">
-            {t('contact_title')}
+            Hubungi Kami
           </p>
-          <h1 className="hero-title max-w-2xl text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black">
-            {t('contact_title2')}
+          <h1 className="hero-title md:max-w-2xl text-4xl md:text-6xl font-bold leading-tight tracking-tight text-black">
+           Mari Berkolaborasi Menuju Masa Depan Digital
           </h1>
-          <p className="hero-desc mt-8 max-w-xl text-xl text-gray-600 leading-relaxed text-justify">
-            {t('contact_subtitle')}
+          <p className="hero-desc mt-8 max-w-xl text-md md:text-xl text-gray-600 leading-relaxed text-justify">
+         Kami hadir untuk mendampingi institusi dan perusahaan Anda dalam menghadirkan inovasi teknologi berbasis riset dan presisi akademik.
           </p>
         </div>
       </section>
@@ -74,48 +76,56 @@ const Contact = () => {
         {/* Info + Map */}
         <div className="space-y-8">
           <div className="info-card bg-[#05224B] rounded-xl p-10 text-white min-h-[420px] shadow-lg">
-            <h3 className="text-3xl font-semibold mb-10"> {t('contact_card_title')}</h3>
+            <h3 className="text-3xl font-semibold mb-10">Ikuti Media Sosial Kami</h3>
             <div className="space-y-10">
-              <div className="info-item-anim"><InfoItem title= {t('contact_card_email')}value="contact@eintio.id" icon="✉" /></div>
-              <div className="info-item-anim"><InfoItem title= {t('contact_card_telepon')} value="62 81122 225 804" icon="☎" /></div>
-              <div className="info-item-anim"><InfoItem title= {t('contact_card_alamat')} value="Jln. Menjangan No.25A, Salatiga, Jawa Tengah" icon="📍" /></div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-6">
+             <div className="info-item-anim"><InfoItem  title="Instagram"  value="@eintio.id" icon={<FaInstagram />}  /></div>
+               <div className="info-item-anim"><InfoItem  title="Threads" value="@eintio.id" icon={<FaThreads />} /></div> 
+              <div className="info-item-anim"><InfoItem title="Facebook" value="eintioid" icon={<FaFacebook />}  /></div>
+              <div className="info-item-anim"><InfoItem title="X (Twitter)" value="EintioTech" icon={<FaXTwitter />} /></div>
+              
+              <div className="info-item-anim"><InfoItem title="Tiktok" value="eintio.edu.tech " icon={<FaTiktok />} /></div>
+             </div>
+             </div>
+             
+          </div>
+
+              <div className="map-card map-hover rounded-xl overflow-hidden shadow-md h-[290px] bg-orange-500 p-10">
+
+                  <h3 className="text-3xl text-white font-semibold mb-10">Hubungi Kami</h3>
+            <div className="space-y-10">
+            <div className="grid grid-cols-1 sm:grid-cols-1 gap-6 text-white">
+                 <div className="info-item-anim"><InfoItem  title="Phone"  value="+6281122225804" icon={<FaPhone />}  /></div>
+               <div className="info-item-anim"><InfoItem  title="Email" value="eintio.sosmed@gmail.com" icon={<MdEmail />} /></div> 
+              </div>
             </div>
           </div>
 
-          <div className="map-card map-hover rounded-xl overflow-hidden shadow-md h-[290px] bg-white">
-            <Image
-              src={mapUrl}
-              width={90}
-              height={90}
-              alt="Map"
-              unoptimized
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
 
       </section>
 
   {/* CTA */}
-<section className="w-full bg-[#f7f7f7] py-10 px-6">
+<section className="w-full bg-[#f7f7f7] md:py-10 py-2 px-6">
   <div className="anim-fade-up relative max-w-7xl mx-auto bg-blue-950  py-12 px-12 rounded-xl shadow-xl flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
     
     {/* Konten kiri */}
-    <div className="flex-1 text-center md:text-left">
+    <div className="flex-1  md:text-left">
       <p className="text-sm tracking-widest mb-4 uppercase text-blue-300 mb-3 font-medium">
         Solusi Terbaik untuk Bisnis Anda
       </p>
-      <h2 className="text-2xl md:text-3xl mb-4 text-white max-w-lg font-bold leading-snug mb-3">
+      <h2 className="text-2xl  md:text-3xl mb-4 text-white max-w-lg font-bold leading-snug mb-3">
         Tingkatkan Pertumbuhan dengan Layanan Premium Kami
       </h2>
-      <p className="text-gray-400 text-sm max-w-lg mx-auto md:mx-0 mb-6">
+      <p className="text-gray-400 text-justify text-sm max-w-lg mx-auto md:mx-0 mb-6">
         Jangan biarkan peluang lewat begitu saja. Dengan dukungan tim ahli dan strategi yang terbukti, 
         bisnis Anda bisa berkembang lebih cepat, lebih aman, dan lebih menguntungkan. 
         Mulai sekarang dan rasakan perbedaannya!
       </p>
 
       {/* Button di bawah teks */}
-      <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+      <div className="flex flex-col-1 sm:flex-row gap-3 justify-center md:justify-start">
         <Link href={'/layanan'} className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 text-sm font-semibold rounded transition-colors">
           Lihat Layanan
         </Link>

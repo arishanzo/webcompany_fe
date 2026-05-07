@@ -17,7 +17,7 @@ const serviceList = [
     border: "border-purple-100",
     titleKey: "Aplikasi Mobile",
     descKey: "Mengembangkan aplikasi mobile yang inovatif dan pengalaman pengguna yang luar biasa.",
-    features: ["Android & iOS Native", "React Native / Flutter", "UI/UX Mobile Design", "App Store Deployment"],
+    features: ["Android & iOS Native", "React Native / Flutter", "UI/UX Mobile Design","Web Based Mobile"],
   },
   {
     icon: GraduationCap,
@@ -26,7 +26,7 @@ const serviceList = [
     border: "border-orange-100",
     titleKey: "Pendidikan & Pelatihan",
     descKey: "Menyediakan program pelatihan dan pendidikan untuk meningkatkan kemampuan teknologi informasi.",
-    features: ["Mengajar di bidang Teknologi Informasi", "Sistem Informasi dan Bisnis Digital",  "Mengajar Kelas Pemrograman (Coding Classes)", "Pendampingan dalam Penulisan Artikel untuk Jurnal Ilmiah"],
+    features: ["Mengajar di bidang TI", "Sistem Informasi dan Bisnis Digital",  "Mengajar Kelas Pemrograman (Coding Classes)", "Pendampingan dalam Penulisan Artikel untuk Jurnal Ilmiah"],
   },
 ];
 
