@@ -26,8 +26,8 @@ const akademiCards = [
   {
     icon: "BookOpen",
     bg: "from-green-600 to-green-800",
-    title: "Pendampingan Jurnal Ilmiah",
-    desc: "Pendampingan penulisan artikel untuk jurnal ilmiah terindeks nasional dan internasional.",
+    title: "Konsultasi Jurnal Ilmiah",
+    desc: "Konsultasi penulisan artikel untuk jurnal ilmiah terindeks nasional dan internasional.",
     btn: "Hubungi Kami",
   },
 ];

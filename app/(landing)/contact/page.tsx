@@ -3,16 +3,11 @@
 import Image from "next/image";
 import InfoItem from "./infoItem";
 import InputText from "../ui/inputtext";
-import { useLanguage } from "../../context/LanguageContext";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaPhone, FaThreads, FaTiktok, FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const Contact = () => {
-
-  const { t } = useLanguage();
-  const apiKey = process.env.NEXT_PUBLIC_GEOAPIFY_KEY;
-  const mapUrl = `https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=800&height=400&center=lonlat:110.5076,-7.3319&zoom=12&apiKey=${apiKey}`;
 
   return (
     <>
@@ -44,24 +39,25 @@ const Contact = () => {
 
         {/* Form */}
         <div className="form-card input-focus-ring bg-white border border-gray-300 rounded-xl p-10 min-h-[760px]">
-          <h2 className="text-4xl font-semibold text-[#0F2747] mb-4">{t('contact_form_title')}</h2>
+          <h2 className="text-4xl font-semibold text-[#0F2747] mb-4">Kirim Pesan</h2>
           <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-lg">
-           {t('contact_form_subtitle')}
+         Tim ahli kami akan merespons permintaan Anda dalam waktu kurang dari 24 jam kerja.
+
           </p>
 
           <div className="grid grid-cols-2 gap-5 mb-5">
-            <InputText label={t('contact_form_nama')} placeholder="" />
-            <InputText label={t('contact_form_alamat')} placeholder="" />
+            <InputText label='Nama Lengkap' placeholder="" />
+            <InputText label='Alamat' placeholder="" />
           </div>
 
           <div className="grid grid-cols-2 gap-5 mb-5">
-            <InputText label={t('contact_form_perusahaan')} placeholder="" />
-            <InputText label={t('contact_form_subjek')} placeholder="" />
+            <InputText label='Nama Perusahaan / Institusi' placeholder="" />
+            <InputText label='Keterangan / Subjek' placeholder="" />
           
           </div>
 
           <div className="mb-8">
-            <label className="text-sm text-gray-600 block mb-2">{t('contact_form_pesan')}</label>
+            <label className="text-sm text-gray-600 block mb-2">Pesan</label>
             <textarea
               placeholder=""
               className="w-full h-40 rounded-md bg-[#f2f4fa] px-4 py-4 resize-none outline-none transition-shadow"
@@ -69,7 +65,7 @@ const Contact = () => {
           </div>
 
           <button className="btn-shine text-white px-10 py-4 rounded-md font-medium text-lg">
-            {t('contact_button')}
+            Kirim Pesan
           </button>
         </div>
 
