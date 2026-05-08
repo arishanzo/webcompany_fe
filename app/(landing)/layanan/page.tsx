@@ -262,7 +262,7 @@ const Services = () => {
           <div className={`flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 opacity-0 ${akademiVisible ? 'anim-fade-up delay-1' : ''}`}>
             <div>
               <span className="text-xs font-semibold text-orange-400 tracking-widest uppercase">• Akademi</span>
-              <h2 className="text-3xl font-bold mt-2">Pendidikan & Pelatihan</h2>
+              <h2 className="text-3xl font-bold mt-2">Akademik Pendidikan</h2>
               <span className="text-gray-600 text-base">
               Riwayat pendidikan formal dan pelatihan profesional yang mendukung pengembangan keterampilan serta kompetensi.
             </span>

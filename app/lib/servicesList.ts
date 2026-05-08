@@ -24,7 +24,7 @@ const serviceList = [
     color: "text-orange-600",
     bg: "bg-orange-50",
     border: "border-orange-100",
-    titleKey: "Pendidikan & Pelatihan",
+    titleKey: "Akademik",
     descKey: "Menyediakan program pelatihan dan pendidikan untuk meningkatkan kemampuan teknologi informasi.",
     features: ["Mengajar di bidang TI", "Sistem Informasi dan Bisnis Digital",  "Mengajar Kelas Pemrograman (Coding Classes)", "Konsultasi dalam Penulisan Artikel untuk Jurnal Ilmiah"],
   },
