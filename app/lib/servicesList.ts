@@ -26,7 +26,8 @@ const serviceList = [
     border: "border-orange-100",
     titleKey: "Akademik",
     descKey: "Menyediakan program pelatihan dan pendidikan untuk meningkatkan kemampuan teknologi informasi.",
-    features: ["Mengajar di bidang TI", "Sistem Informasi dan Bisnis Digital",  "Mengajar Kelas Pemrograman (Coding Classes)", "Konsultasi dalam Penulisan Artikel untuk Jurnal Ilmiah"],
+    features: ["Mengajar di bidang TI", "Sistem Informasi dan Bisnis Digital",  "Mengajar Kelas Pemrograman (Coding Classes)", "Konsultasi dalam Penulisan Artikel untuk Jurnal Ilmiah", "Konsultasi skripsi/thesis/disertasi",
+    "Penyediaan pembicara seminar profesional",],
   },
   {
   icon: Cpu,

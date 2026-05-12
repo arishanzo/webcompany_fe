@@ -12,6 +12,7 @@ const Header = () => {
     const [activeNav, setActiveNav] = useState(pathname === '/' ? true : false);
     const { lang, setLang, t } = useLanguage();
 
+     const [open, setOpen] = useState(false)
    
     const handleNavClick = () => {
         setActiveNav(true);
@@ -44,12 +45,71 @@ const Header = () => {
                        className= {`${pathname === '/about' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
                             {t('nav_about')}
                         </Link>
-                        <Link 
-                        href="/layanan"
-                          onClick={ () => handleNavClick()} 
-                        className= {`${pathname === '/layanan' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
-                         {t('nav_services')}
-                        </Link>
+                        
+                        <div
+                            className="relative inline-block text-left"
+                            onMouseEnter={() => setOpen(true)}
+                            onMouseLeave={() => setOpen(false)}
+                            >
+                        <div className="flex items-center space-x-1 py-2">
+                            {/* Tombol utama */}
+                            <Link
+                                href="/layanan"
+                                onClick={() => handleNavClick()}
+                                className={`${
+                                pathname === '/layanan'
+                                    ? 'text-orange-600 font-extrabold'
+                                    : 'text-gray-700'
+                                } hover:text-orange-600 transition-colors font-medium`}
+                            >
+                                {t('nav_services')}
+                            </Link>
+                            <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-3 h-3 text-gray-500"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                            />
+                            </svg>
+                            </div>
+
+                                                    {/* Dropdown */}
+                            {open && (
+                                <div className="absolute top-full w-56 rounded-lg bg-white shadow-lg ring-1 ring-black/5">
+                                <div className="py-2">
+                                    
+                                    <Link
+                                    href="/layanan/pendidikan"
+                                    onClick={() => {
+                                        handleNavClick()
+                                        setOpen(false) // tutup dropdown
+                                    }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                                    >
+                                    Layanan Pendidikan
+                                    </Link>
+                                    <Link
+                                    href="/layanan/teknologi"
+                                    onClick={() => {
+                                        handleNavClick()
+                                        setOpen(false) // tutup dropdown
+                                    }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                                    >
+                                    Layanan Pendidikan Teknologi
+                                    </Link>
+                                </div>
+                                </div>
+                            )}
+                            </div>
+
                         <Link 
                         href="/portfolio" 
                           onClick={ () => handleNavClick()}
@@ -126,15 +186,9 @@ const Header = () => {
                     {/* Header */}
                     <div className="flex items-center justify-between p-6 border-b border-gray-200">
                        <div className="flex items-center space-x-2">
-                            <Image
-                                src="/logo.png" 
-                                alt="Logo PT. Eintio" 
-                                width={40}      
-                                height={40}  
-                                className="w-8 h-8 object-contain"
-                            />
+                           
                             <span className="text-xl font-extrabold bg-orange-500 bg-clip-text text-transparent">
-                                PT. Eintio
+                                Eintio
                             </span>
                             </div>
                         <button
@@ -164,13 +218,71 @@ const Header = () => {
                            >
                                 {t('nav_about')}
                             </Link>
-                            <Link 
-                                href="/layanan" 
-                                onClick={() => setIsMenuOpen(false)}
-                                className= {`${ pathname === '/layanan' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
-                             >
+                           
+                                                   <div
+                            className="relative inline-block text-left pl-4"
+                            onMouseEnter={() => setOpen(true)}
+                            onMouseLeave={() => setOpen(false)}
+                            >
+                        <div className="flex items-center space-x-1">
+                            {/* Tombol utama */}
+                            <Link
+                                href="/layanan"
+                                onClick={() => handleNavClick()}
+                                className={`${
+                                pathname === '/layanan'
+                                    ? 'text-orange-600 font-extrabold'
+                                    : 'text-gray-700'
+                                } hover:text-orange-600 transition-colors font-medium`}
+                            >
                                 {t('nav_services')}
                             </Link>
+                            <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-3 h-3 text-gray-500"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                            />
+                            </svg>
+                            </div>
+
+                                                    {/* Dropdown */}
+                            {open && (
+                                <div className="absolute top-full w-56 rounded-lg bg-white shadow-lg ring-1 ring-black/5">
+                                <div className="py-2">
+                                    <Link
+                                    href="/layanan/pendidikan"
+                                    onClick={() => {
+                                        handleNavClick()
+                                        setOpen(false) // tutup dropdown
+                                    }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                                    >
+                                    Layanan Pendidikan
+                                    </Link>
+                                    <Link
+                                    href="/layanan/teknologi"
+                                    onClick={() => {
+                                        handleNavClick()
+                                        setOpen(false) // tutup dropdown
+                                    }}
+                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                                    >
+                                    Layanan Pendidikan Teknologi
+                                    </Link>
+                                </div>
+                                </div>
+                            )}
+                            </div>
+
+                           
                             <Link 
                                 href="/portfolio" 
                                onClick={() => setIsMenuOpen(false)}
