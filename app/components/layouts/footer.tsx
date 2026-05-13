@@ -37,7 +37,7 @@ const Footer = () => {
                         </Link>
                         <Link 
                         onClick={ () => handleNavClick()}
-                        href="/layanan"  className={` ${ pathname === '/layanan' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
+                        href="/layanan"  className={` ${    pathname === '/layanan' ||  pathname === '/layanan/layananpendidikan' ||  pathname === '/layanan/layananpendidikanteknologi' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
                          {t('nav_services')}
                         </Link>
                         <Link 

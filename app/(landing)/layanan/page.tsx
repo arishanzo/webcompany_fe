@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckCircle2, ChevronLeft, ChevronRight, Smartphone, Code2, Database, Shield, Zap, Users, Monitor, BarChart2, BookOpen, LucideIcon, Cpu, Wifi, Settings, Wrench, AlertTriangle } from "lucide-react"
+import { CheckCircle2, ChevronLeft, ChevronRight, Smartphone, Code2, Database, Shield, Zap, Users, Monitor, BarChart2, BookOpen, LucideIcon, Cpu, Wifi, Settings, Wrench, AlertTriangle, Laptop, GraduationCap } from "lucide-react"
 import Image from "next/image"
 
 const iconMap: Record<string, LucideIcon> = { Monitor, BarChart2, Code2, BookOpen };
@@ -84,8 +84,8 @@ const Services = () => {
       </section>
 
       {/* SEMUA LAYANAN */}
-      <section id="layanan" className="py-8 bg-gray-100">
-        <div ref={layananRef} className="max-w-7xl mx-auto px-6">
+      <section id="layanan" className=" bg-gray-100">
+        <div ref={layananRef} className="max-w-7xl mx-auto px-6 py-12">
           <div className={`text-start mb-14 opacity-0 ${layananVisible ? 'anim-fade-up delay-1' : ''}`}>
             <span className="text-sm text-gray-700 font-semibold tracking-widest uppercase">• Layanan Teknologi</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Pengembangan Digital</h2>
@@ -116,8 +116,103 @@ const Services = () => {
         </div>
       </section>
 
+
+      {/* AKADEMI / LAYANAN */}
+<section className="py-12 px-3 bg-gray-100 overflow-hidden">
+  <div
+    ref={akademiRef}
+    className="max-w-7xl mx-auto px-6"
+  >
+    <div
+      className={`flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 opacity-0 ${
+        akademiVisible ? 'anim-fade-up delay-1' : ''
+      }`}
+    >
+      <div>
+        <span className="text-xs font-semibold text-orange-400 tracking-widest uppercase">
+          • Layanan
+        </span>
+
+        <h2 className="text-3xl font-bold mt-2">
+          Layanan Pendidikan
+        </h2>
+
+        <span className="text-gray-600 text-base">
+          Pilihan layanan pendidikan dan teknologi untuk mendukung
+          pengembangan kompetensi serta transformasi digital.
+        </span>
+      </div>
+    </div>
+
+    {/* CARD */}
+    <div className="grid md:grid-cols-2 gap-6">
+      
+      {/* CARD 1 */}
+      <div
+        className={`opacity-0 ${
+          akademiVisible ? 'anim-fade-up' : ''
+        } relative rounded-2xl overflow-hidden group transition-all duration-500`}
+      >
+        <div className="relative flex  flex-col items-center justify-center bg-gradient-to-br from-orange-500 to-orange-700 h-72">
+          
+          <GraduationCap className="w-16 h-16 text-white/80 mb-4 group-hover:scale-110 transition-transform duration-500" />
+
+          <div className="text-white text-center">
+            <h3 className="font-bold text-2xl mb-2">
+              Layanan Pendidikan
+            </h3>
+
+            <p className="text-white/80 text-sm mb-5">
+              Program Konsultasi, Penyediaan pembicara profesional, dan pengembangan kompetensi pendidikan.
+            </p>
+
+            <Link
+              href="/layanan/layananpendidikan"
+              className="inline-block text-sm font-semibold bg-white/20 hover:bg-white/30 px-5 py-2 rounded-lg transition-colors"
+            >
+              Lihat Layanan
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* CARD 2 */}
+      <div
+        className={`opacity-0 ${
+          akademiVisible ? 'anim-fade-up' : ''
+        } relative rounded-2xl overflow-hidden group transition-all duration-500`}
+        style={{ animationDelay: `0.2s` }}
+      >
+        <div className="relative flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-700 h-72 p-6">
+          
+          <Laptop className="w-16 h-16 text-white/80 mb-4 group-hover:scale-110 transition-transform duration-500" />
+
+          <div className="text-white text-center">
+            <h3 className="font-bold text-2xl mb-2">
+              Layanan Pendidikan Teknologi
+            </h3>
+
+            <p className="text-white/80 text-sm mb-5">
+              Pelatihan teknologi digital, pelatihan coding dan transformasi IT.
+            </p>
+
+            <Link
+              href="/layanan/layananpendidikanteknologi"
+              className="inline-block text-sm font-semibold bg-white/20 hover:bg-white/30 px-5 py-2 rounded-lg transition-colors"
+            >
+              Lihat Layanan
+            </Link>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
       {/* DETAIL WEB & MOBILE */}
-      <section className="py-12 bg-gray-100">
+      <section className="md:py-12 py-12 px-3  bg-gray-100">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
 
           {/* Web Dev */}
@@ -256,73 +351,15 @@ const Services = () => {
     </div>
       </section>
 
-      {/* AKADEMI CAROUSEL */}
-      <section className="py-20 bg-gray-200 overflow-hidden">
-        <div ref={akademiRef} className="max-w-7xl mx-auto px-6">
-          <div className={`flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 opacity-0 ${akademiVisible ? 'anim-fade-up delay-1' : ''}`}>
-            <div>
-              <span className="text-xs font-semibold text-orange-400 tracking-widest uppercase">• Akademi</span>
-              <h2 className="text-3xl font-bold mt-2">Akademik Pendidikan</h2>
-              <span className="text-gray-600 text-base">
-              Riwayat pendidikan formal dan pelatihan profesional yang mendukung pengembangan keterampilan serta kompetensi.
-            </span>
-            </div>
-            <div className="flex gap-3">
-              <button onClick={prev} className="w-10 h-10 rounded-full border border-gray-300 hover:bg-gray-200 flex items-center justify-center transition-colors">
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button onClick={next} className="w-10 h-10 rounded-full border border-gray-300 hover:bg-gray-200 flex items-center justify-center transition-colors">
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[0, 1, 2].map((offset) => {
-              const card = akademiCards[(current + offset) % total];
-              const Icon = iconMap[card.icon];
-              return (
-                <div key={offset}
-                  className={`opacity-0 ${akademiVisible ? 'anim-fade-up' : ''} relative rounded-2xl overflow-hidden group transition-all duration-500 ${offset === 0 ? "md:col-span-1 row-span-2" : ""}`}
-                  style={{ animationDelay: `${offset * 0.15 + 0.2}s` }}>
-                  <div className={`relative flex flex-col items-center justify-center bg-gradient-to-br ${card.bg} aspect-video md:aspect-auto md:h-64 p-6`}>
-                    <Icon className="w-16 h-16 text-white/80 mb-4 group-hover:scale-110 transition-transform duration-500" />
-                    {card.badge && (
-                      <span className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                        {card.badge}
-                      </span>
-                    )}
-                    <div className="text-white text-center">
-                      <h3 className="font-bold text-lg mb-1">{card.title}</h3>
-                      <p className="text-white/70 text-sm mb-3">{card.desc}</p>
-                      <Link href="https://wa.me/6281122225804"
-                        className="inline-block text-xs font-semibold bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors">
-                        {card.btn}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {akademiCards.map((_, i) => (
-              <button key={i} onClick={() => setCurrent(i)}
-                className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-orange-500 w-6" : "bg-gray-300"}`} />
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* CTA */}
       <section className="bg-gradient-to-br from-orange-600 to-orange-700 text-white py-20 text-center overflow-hidden relative">
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div ref={ctaRef} className={`relative z-10 max-w-2xl mx-auto px-6 opacity-0 ${ctaVisible ? 'anim-scale-in delay-1' : ''}`}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('services_cta_title')}</h2>
-          <p className="mb-10 text-orange-100 text-lg">{t('services_cta_desc')}</p>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">{t('services_cta_title')}</h2>
+          <p className="mb-10 text-orange-100 md:text-lg text-sm">{t('services_cta_desc')}</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="https://wa.me/6281122225804"
               className="bg-white text-orange-600 font-bold px-8 py-3.5 rounded-lg hover:bg-orange-50 transition-all hover:scale-105 shadow-lg">
