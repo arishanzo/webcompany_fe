@@ -2,8 +2,7 @@
 
 import { Award, Handshake, Lightbulb, Rocket, ShieldCheck, Star, Target, TrendingUp } from "lucide-react";
 import Link from 'next/link';
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import useCountUp from "../../hooks/useCountUp";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import Image from "next/image";
 import useReveal from "../../hooks/useReveal";
@@ -26,9 +25,6 @@ const AboutUs = () => {
     return () => clearTimeout(t);
   }, []);
 
-  const client = useCountUp(5);
-  const Projects = useCountUp(100);
-  const support = useCountUp(27);
 
   return (
     <>

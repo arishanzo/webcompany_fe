@@ -1,7 +1,6 @@
 'use client'
 
 import Link from "next/link";
-import { useState } from "react";
 import useReveal from "../../../hooks/useReveal";
 import { CheckCircle2, ChevronRight } from "lucide-react";
 import ServicesTeknologiPendidikan from "../../../lib/servicesPendidikanTeknologi";
@@ -9,8 +8,7 @@ import ServicesTeknologiPendidikan from "../../../lib/servicesPendidikanTeknolog
 
 
 const LayananPendidikanTeknologi = () => {
-    
-  const [heroVisible, setHeroVisible] = useState(false);
+
   const { ref: heroSectionRef, visible: heroSectionVisible } = useReveal();
   const { ref: layananSectionRef, visible: layananSectionVisible } = useReveal();
   

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from "next/image";
 import InfoItem from "./infoItem";
 import InputText from "../ui/inputtext";
 import Link from "next/link";

@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckCircle2, ChevronLeft, ChevronRight, Smartphone, Code2, Database, Shield, Zap, Users, Monitor, BarChart2, BookOpen, LucideIcon, Cpu, Wifi, Settings, Wrench, AlertTriangle, Laptop, GraduationCap } from "lucide-react"
+import { CheckCircle2, Smartphone, Code2, Database, Shield, Zap, Users, Monitor, BarChart2, BookOpen, LucideIcon, Cpu, Wifi, Settings, Wrench, AlertTriangle, Laptop, GraduationCap } from "lucide-react"
 import Image from "next/image"
 
 const iconMap: Record<string, LucideIcon> = { Monitor, BarChart2, Code2, BookOpen };
