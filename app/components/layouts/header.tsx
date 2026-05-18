@@ -45,78 +45,63 @@ const Header = () => {
                             {t('nav_about')}
                         </Link>
                         
-                        <div
-                            className="relative inline-block text-left"
-                            onMouseEnter={() => setOpen(true)}
-                            onMouseLeave={() => setOpen(false)}
-                            >
-                        <div className="flex items-center space-x-1 py-2">
-                            {/* Tombol utama */}
-                            <Link
-                                href="/layanan"
-                                onClick={() => handleNavClick()}
-                                className={`${
-                                pathname === '/layanan' ||  pathname === '/layanan/layananpendidikan' ||  pathname === '/layanan/layananpendidikanteknologi'
-                                    ? 'text-orange-600 font-extrabold'
-                                    : 'text-gray-700'
-                                } hover:text-orange-600 transition-colors font-medium`}
-                            >
-                                {t('nav_services')}
-                            </Link>
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-3 h-3 text-gray-500"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M19 9l-7 7-7-7"
-                            />
-                            </svg>
-                            </div>
+                           <div className="relative pl-4">
+                    <button
+                        onClick={() => setOpen(!open)}
+                        className={`flex items-center space-x-1 ${
+                        pathname.startsWith('/layanan')
+                            ? 'text-orange-600 font-extrabold'
+                            : 'text-gray-700'
+                        } hover:text-orange-600 transition-colors font-medium`}
+                    >
+                        {t('nav_services')}
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-3 h-3 text-gray-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
 
-                                                    {/* Dropdown */}
-                            {open && (
-                                <div className="absolute top-full w-56 rounded-lg bg-white shadow-lg ring-1 ring-black/5">
-                                <div className="py-2">
-                                    
-                                    <Link
-                                    href="/layanan/layananpendidikan"
-                                    onClick={() => {
-                                        handleNavClick()
-                                        setOpen(false) // tutup dropdown
-                                    }}
-                                    className=  {`${
+                    {/* Dropdown */}
+                    {open && (
+                        <div className="absolute top-full mt-2 w-56 rounded-lg bg-white shadow-lg ring-1 ring-black/5">
+                        <div className="py-2">
+                            <Link
+                            href="/layanan/layananpendidikan"
+                            onClick={() => {
+                                handleNavClick()
+                                setOpen(false)
+                            }}
+                            className={`${
                                 pathname === '/layanan/layananpendidikan'
-                                    ? 'text-orange-600 font-bold'
-                                    : 'text-gray-700'
-                                        }
-                                        block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors`}
-                                    >
-                                    Layanan Pendidikan
-                                    </Link>
-                                    <Link
-                                    href="/layanan/layananpendidikanteknologi"
-                                    onClick={() => {
-                                        handleNavClick()
-                                        setOpen(false) // tutup dropdown
-                                    }}
-                                    className= {`${
-                                pathname === '/layanan/layananpendidikanteknologi'
-                                    ? 'text-orange-600 font-bold'
-                                    : 'text-gray-700'
-                                } block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors`}
-                                    >
-                                    Layanan Pendidikan Teknologi
-                                    </Link>
-                                </div>
-                                </div>
-                            )}
-                            </div>
+                                ? 'text-orange-600 font-bold'
+                                : 'text-gray-700'
+                            } block px-4 py-2 text-sm hover:bg-orange-50 hover:text-orange-600 transition-colors`}
+                            >
+                            Layanan Akademik
+                            </Link>
+                            <Link
+                            href="/layanan/layananteknologi"
+                            onClick={() => {
+                                handleNavClick()
+                                setOpen(false)
+                            }}
+                            className={`${
+                                pathname === '/layanan/layananteknologi'
+                                ? 'text-orange-600 font-bold'
+                                : 'text-gray-700'
+                            } block px-4 py-2 text-sm hover:bg-orange-50 hover:text-orange-600 transition-colors`}
+                            >
+                            Layanan Teknologi
+                            </Link>
+                        </div>
+                        </div>
+                    )}
+                    </div>
 
                         <Link 
                         href="/portfolio" 
@@ -124,6 +109,14 @@ const Header = () => {
                        className= {`${pathname === '/portfolio' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
                             {t('nav_portfolio')}
                         </Link>
+
+                           <Link 
+                        href="/team" 
+                          onClick={ () => handleNavClick()}
+                       className= {`${pathname === '/team' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
+                           Tim Kami
+                        </Link>
+                        
                           <Link 
                           href="/berita"
                             onClick={ () => handleNavClick()} 
@@ -226,80 +219,64 @@ const Header = () => {
                            >
                                 {t('nav_about')}
                             </Link>
-                           
-                                                   <div
-                            className="relative inline-block text-left pl-4"
-                            onMouseEnter={() => setOpen(true)}
-                            onMouseLeave={() => setOpen(false)}
-                            >
-                        <div className="flex items-center space-x-1">
-                            {/* Tombol utama */}
+                                            <div className="relative pl-4">
+                    <button
+                        onClick={() => setOpen(!open)}
+                        className={`flex items-center space-x-1 ${
+                        pathname.startsWith('/layanan')
+                            ? 'text-orange-600 font-extrabold'
+                            : 'text-gray-700'
+                        } hover:text-orange-600 transition-colors font-medium`}
+                    >
+                        {t('nav_services')}
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-3 h-3 text-gray-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    {/* Dropdown */}
+                    {open && (
+                        <div className="absolute top-full mt-2 w-56 rounded-lg bg-white shadow-lg ring-1 ring-black/5">
+                        <div className="py-2">
                             <Link
-                                href="/layanan"
-                                onClick={() => handleNavClick()}
-                                className={`${
-                                pathname === '/layanan' ||  pathname === '/layanan/layananpendidikan' ||  pathname === '/layanan/layananpendidikanteknologi'
-                                    ? 'text-orange-600 font-extrabold'
-                                    : 'text-gray-700'
-                                } hover:text-orange-600 transition-colors font-medium`}
-                            >
-                                {t('nav_services')}
-                            </Link>
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-3 h-3 text-gray-500"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M19 9l-7 7-7-7"
-                            />
-                            </svg>
-                            </div>
-
-                                                    {/* Dropdown */}
-                            {open && (
-                                <div className="absolute top-full w-56 rounded-lg bg-white shadow-lg ring-1 ring-black/5">
-                                <div className="py-2">
-                                    <Link
-                                    href="/layanan/layananpendidikan"
-                                    onClick={() => {
-                                        handleNavClick()
-                                        setOpen(false) // tutup dropdown
-                                    }}
-                                    className=
-                                     {`${
+                            href="/layanan/layananpendidikan"
+                            onClick={() => {
+                                handleNavClick()
+                                setOpen(false)
+                            }}
+                            className={`${
                                 pathname === '/layanan/layananpendidikan'
-                                    ? 'text-orange-600 font-bold'
-                                    : 'text-gray-700'
-                                } block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors`}
-                                    >
-                                    Layanan Pendidikan
-                                    </Link>
-                                    <Link
-                                    href="/layanan/layananpendidikanteknologi"
-                                    onClick={() => {
-                                        handleNavClick()
-                                        setOpen(false) // tutup dropdown
-                                    }}
-                                    className={`${
-                                pathname === '/layanan/layananpendidikanteknologi'
-                                    ? 'text-orange-600 font-bold'
-                                    : 'text-gray-700'
-                                } block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors `}
-                                    >
-                                    Layanan Pendidikan Teknologi
-                                    </Link>
-                                </div>
-                                </div>
-                            )}
-                            </div>
-
-                           
+                                ? 'text-orange-600 font-bold'
+                                : 'text-gray-700'
+                            } block px-4 py-2 text-sm hover:bg-orange-50 hover:text-orange-600 transition-colors`}
+                            >
+                            Layanan Akademik
+                            </Link>
+                            <Link
+                            href="/layanan/layananteknologi"
+                            onClick={() => {
+                                handleNavClick()
+                                setOpen(false)
+                            }}
+                            className={`${
+                                pathname === '/layanan/layananteknologi'
+                                ? 'text-orange-600 font-bold'
+                                : 'text-gray-700'
+                            } block px-4 py-2 text-sm hover:bg-orange-50 hover:text-orange-600 transition-colors`}
+                            >
+                            Layanan Teknologi
+                            </Link>
+                        </div>
+                        </div>
+                    )}
+                    </div>
+                                            
                             <Link 
                                 href="/portfolio" 
                                onClick={() => setIsMenuOpen(false)}
@@ -307,6 +284,15 @@ const Header = () => {
                               >
                                 {t('nav_portfolio')}
                             </Link>
+
+                              <Link 
+                                href="/team" 
+                               onClick={() => setIsMenuOpen(false)}
+                                className= {`${pathname === '/team' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
+                              >
+                                Team Kami
+                            </Link>
+
                             <Link 
                                 href="/berita" 
                                 onClick={() => setIsMenuOpen(false)}
