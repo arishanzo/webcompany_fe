@@ -6,6 +6,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import Image from "next/image";
 import useReveal from "../../hooks/useReveal";
+import OrganiasiSection from "./components/organisasi";
 
 
 const AboutUs = () => {
@@ -185,6 +186,8 @@ const AboutUs = () => {
           </div>
         </section>
         </div>
+
+        <OrganiasiSection />
 
        {/* CTA */}
 <section className="w-full bg-orange-600 bg-gray-200 py-16 bottom-0 p-8">

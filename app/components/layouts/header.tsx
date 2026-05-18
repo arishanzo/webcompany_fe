@@ -45,7 +45,7 @@ const Header = () => {
                             {t('nav_about')}
                         </Link>
                         
-                           <div className="relative pl-4">
+                           <div className="relative">
                     <button
                         onClick={() => setOpen(!open)}
                         className={`flex items-center space-x-1 ${
@@ -110,12 +110,7 @@ const Header = () => {
                             {t('nav_portfolio')}
                         </Link>
 
-                           <Link 
-                        href="/team" 
-                          onClick={ () => handleNavClick()}
-                       className= {`${pathname === '/team' ? 'text-orange-600 font-extrabold' :  'text-gray-700'} hover:text-orange-600 transition-colors font-medium`}>
-                           Tim Kami
-                        </Link>
+                         
                         
                           <Link 
                           href="/berita"
@@ -285,13 +280,7 @@ const Header = () => {
                                 {t('nav_portfolio')}
                             </Link>
 
-                              <Link 
-                                href="/team" 
-                               onClick={() => setIsMenuOpen(false)}
-                                className= {`${pathname === '/team' ? 'text-orange-600 ' : 'text-gray-900' } block px-4 py-3  hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors font-medium`}
-                              >
-                                Team Kami
-                            </Link>
+                             
 
                             <Link 
                                 href="/berita" 

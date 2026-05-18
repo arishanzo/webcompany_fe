@@ -3,7 +3,7 @@ import { BadgeDollarSign, Crown, Globe, GraduationCap, Megaphone, MonitorSmartph
   const teamsAll = () => {
   const leadership = [
     {
-      name: "Dina Robiana Sitompul",
+      name: "Direktur Utama",
       role: "Direktur Utama",
       icon: Crown,
     },
@@ -14,7 +14,7 @@ import { BadgeDollarSign, Crown, Globe, GraduationCap, Megaphone, MonitorSmartph
     },
     {
       name: "Wakil Direktur",
-      role: "Vice Director",
+      role: "Wakil Direktur",
       icon: Users,
     },
   ];
@@ -25,40 +25,35 @@ import { BadgeDollarSign, Crown, Globe, GraduationCap, Megaphone, MonitorSmartph
       {
         title: "Akademik",
         icon: GraduationCap,
-        members: ["Muhammad Rizki", "Zainab Djihat"],
+        members: [""],
       },
       {
         title: "SDM",
         icon: Users,
-        members: ["Jois Ketrin", "Athilla Dhia"],
+        members: [""],
       },
       {
         title: "Finance & Accounting",
         icon: BadgeDollarSign,
-        members: ["Sofiatun Nada"],
+        members: [""],
       },
       {
         title: "Corporate & Marketing",
         icon: Megaphone,
         members: [
-          "Muhammad Dzaky",
-          "Dwina Yabetzha",
-          "Muhammad Azizul",
+          ""
         ],
       },
       {
         title: "Website Development",
         icon: Globe,
-        members: ["Aris Wahyudi", "Setiya Wahyu"],
+        members: [""],
       },
       {
         title: "Application Development",
         icon: MonitorSmartphone,
         members: [
-          "Vikar Ryo",
-          "Vill Valentinov",
-          "Rafli Aditrya",
-          "David Akmal",
+          "",
         ],
       },
     ];

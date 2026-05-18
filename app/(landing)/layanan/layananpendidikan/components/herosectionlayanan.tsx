@@ -18,8 +18,7 @@ const HeroSectionLayanan = () => {
 
           {/* LEFT: Text */}
           <div>
-            <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-600 border border-orange-200 rounded-full px-4 py-1.5 text-sm font-medium">
-              <Star className="w-3.5 h-3.5" />
+            <span className="inline-flex items-center gap-2 border border-gray-200 rounded-full px-4 py-1.5 text-sm font-medium">
               Layanan Pendidikan Profesional
             </span>
 
@@ -38,7 +37,7 @@ const HeroSectionLayanan = () => {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/kontak"
-                className="px-7 py-4 rounded-2xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition shadow-lg shadow-orange-500/20"
+                className="px-7 py-4 rounded-2xl bg-biru-dark text-white font-semibold transition shadow-lg"
               >
                 Konsultasi Sekarang
               </Link>
