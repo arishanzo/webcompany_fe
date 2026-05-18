@@ -46,11 +46,7 @@ const Footer = () => {
                         href="/portfolio"  className={` ${ pathname === '/portfolio' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
                              {t('nav_portfolio')}
                         </Link>
-                         <Link 
-                        onClick={ () => handleNavClick()}
-                        href="/team"  className={` ${ pathname === '/team' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
-                             Team Kami
-                        </Link>
+                      
                           <Link 
                         onClick={ () => handleNavClick()}
                           href="/berita"  className={` ${pathname === '/berita' ? 'text-orange-600 font-bold' : 'text-white'}  text-xs hover:text-blue-600 transition-colors font-light`}>
